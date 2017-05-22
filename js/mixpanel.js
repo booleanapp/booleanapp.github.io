@@ -46,4 +46,4 @@
         c.parentNode.insertBefore(b, c)
     }
 })(document, window.mixpanel || []);
-mixpanel.init("4542bcca1cb9bab1d6fac9c371642e42");
+mixpanel.init("5b5f7c1ee41a453a6399ce944d79f13f");
