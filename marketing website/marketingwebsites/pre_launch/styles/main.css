@@ -1,0 +1,718 @@
+html {
+    -webkit-font-smoothing: antialiased;
+}
+
+body {
+    background: #fff;
+    font: normal 100% 'Open Sans', sans-serif;
+    margin: 0 auto;
+    max-width: 1280px;
+    color: #4a4a4a;
+}
+
+.main-container {
+    margin: 0 auto;
+}
+
+.header img {
+    margin: 2% auto 2% 5%;
+}
+
+nav .nav-wrapper {
+    margin: 0 auto;
+}
+
+nav .nav-elements {
+    list-style-type: none;
+    float: right !important;
+    margin: 2% 4% 2% auto;
+}
+
+nav ul li {
+    float: left;
+    padding: 1em 1em;
+    text-align: center;
+}
+
+.nav-wrapper .inner-wrap {
+    max-width: 100%;
+    margin: 0 auto;
+    left: auto;
+    right: auto;
+}
+
+.header .nav-wrapper a {
+    color: #363c44;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.main-container .title-head {
+    clear: both;
+    text-align: center;
+    margin: 4% 2% auto 2%;
+    padding: 0 1em;
+}
+
+.title-head .main-title {
+    font-family: Helvetica;
+    font-size: 3em;
+    font-weight: bold;
+    letter-spacing: -1.9px;
+}
+
+.title-head .title-sub-head {
+    margin-top: 1%;
+}
+
+.title-sub-head .sub-title {
+    font-size: 1.125em;
+    line-height: 1.33;
+}
+
+.main-container .feature-image {
+    text-align: center;
+    background-image: url(../images/bg.png);
+    width: 79%;
+    max-width: 100%;
+    margin: 3% auto auto auto;
+}
+
+.feature-image .request-access {
+    margin: auto auto 3% auto;
+}
+
+.feature-image .request-access .request-success {
+    margin: auto auto 3% auto;
+}
+
+.feature-image .request-access .request-success,
+.get-start-container .request-access .request-success {
+    display: none;
+    color: #1fb619;
+    font-size: 1em;
+    font-weight: bold;
+}
+
+.get-start-container .request-access .email-input {
+    width: 25%;
+}
+
+.get-start-container .request-access .email-input {
+    padding: 1.3% 1%;
+}
+
+.get-start-container .request-access .request-button {
+    padding: 1.3% 1%;
+}
+
+.request-access .email-input {
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    border: 1px solid #C2C2C2;
+    box-shadow: 1px 1px 4px #EBEBEB;
+    -moz-box-shadow: 1px 1px 4px #EBEBEB;
+    -webkit-box-shadow: 1px 1px 4px #EBEBEB;
+    border-radius: 3px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    padding: 1.7% 1.25%;
+    outline: none;
+    width: 30%;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1.05em;
+}
+
+.request-access .email-input:focus {
+    border: solid 1px #f18101;
+}
+
+.request-access .request-button {
+    border: none;
+    font-size: 1.05em;
+    padding: 1.75% 1.25%;
+    background: #e75e00;
+    color: #fff;
+    font-weight: bold;
+    box-shadow: 1px 1px 4px #DADADA;
+    -moz-box-shadow: 1px 1px 4px #DADADA;
+    -webkit-box-shadow: 1px 1px 4px #DADADA;
+    border-radius: 3px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    cursor: pointer;
+}
+
+.request-access .error-msg {
+    width: 50%;
+}
+
+.request-access .error-msg-one {
+    width: 41%;
+}
+
+.request-access .error-msg,
+.request-access .error-msg-one {
+    color: #d85c6b;
+    margin: 0 auto;
+    text-align: left;
+    visibility: hidden;
+}
+
+.get-start-container .request-access {
+    margin: 4% auto;
+}
+
+.get-start-container .request-access .request-success {
+    margin: 4% auto;
+}
+
+.feature-image .chat-bots {
+    margin: 0 auto;
+}
+
+.feature-image .chat-bots img {
+    max-width: 100%;
+}
+
+.main-container .process-container,
+.main-container .get-start-container {
+    border-style: solid;
+    border-width: 1px;
+    border-image-source: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(0, 0, 0, 0.3) 36%, rgba(0, 0, 0, 0.3) 64%, rgba(255, 255, 255, 0));
+    border-image-slice: 1;
+    margin: 0 auto;
+}
+
+.main-container .process-container {
+    background-color: #f7f7f7;
+}
+
+.feature-container .all-features {
+    text-align: center;
+    margin: auto auto 8% auto;
+    clear: both;
+}
+
+.all-features a {
+    font-size: 1.25em;
+    font-weight: 600;
+    line-height: 1.2;
+    color: #e75e00;
+    text-decoration: none;
+}
+
+.main-container .get-start-container {
+    background-color: #f8f8f8;
+    text-align: center;
+}
+
+.process-container .process-content {
+    margin: 5% auto 5% auto;
+}
+
+.process-container .process-content,
+.feature-container .feature-content {
+    overflow: hidden;
+    clear: both;
+}
+
+.feature-container .feature-content {
+    margin: 5% auto 1% auto;
+}
+
+.process-container .how-it-works {
+    margin: 5% auto auto auto;
+    text-align: center;
+}
+
+.how-it-works .how-it-works-text {
+    font-size: 2.125em;
+    font-family: Helvetica;
+    font-weight: bold;
+}
+
+.process-content .image,
+.feature-content .image {
+    text-align: center;
+    max-width: 100%;
+}
+
+.process-content .title-text,
+.feature-content .title-text {
+    font-family: Helvetica;
+    font-size: 1.25em;
+    font-weight: bold;
+    text-align: center;
+}
+
+.process-content .content-text,
+.feature-content .content-text {
+    opacity: 0.9;
+    line-height: 1.5;
+}
+
+.process-container .process-content .compose,
+.feature-container .feature-content .customizable {
+    float: left;
+    margin-left: 10.40%;
+    width: 18.75%;
+}
+
+.process-container .process-content .analyze,
+.feature-container .feature-content .scoring {
+    margin-left: 11.56%;
+    float: left;
+    width: 18.75%;
+}
+
+.process-container .process-content .send,
+.feature-container .feature-content .segmentation {
+    margin-left: 11.48%;
+    width: 18.75%;
+    float: left;
+}
+
+.main-container .feature-container {
+    margin: 0 auto;
+}
+
+.feature-container .feature-title {
+    width: 184px;
+    margin: 5% auto;
+    text-align: center;
+}
+
+.feature-title .feature-title-text {
+    font-size: 2.125em;
+    font-family: Helvetica;
+    font-weight: bold;
+}
+
+.title-head .start-head {
+    font-family: Helvetica;
+    font-weight: bold;
+    font-size: 2.625em;
+}
+
+.get-start-container .try-free-btn {
+    margin: 2% auto auto auto;
+}
+
+.get-start-container .no-card {
+    margin: .5% auto 5% auto;
+}
+
+.main-container .footer {
+    margin: 3% auto;
+    clear: both;
+    overflow: hidden;
+}
+
+.footer .footer-title {
+    font-family: Helvetica;
+    font-weight: bold;
+    color: #363c44;
+    margin: 1% auto;
+}
+
+.footer .company {
+    margin-left: 5.7%;
+    width: 14.2%;
+    float: left;
+}
+
+.footer .product {
+    margin-left: 6.1%;
+    width: 5.5%;
+    float: left;
+}
+
+.footer .social {
+    float: left;
+    width: 8.6%;
+    margin-left: 6.1%;
+}
+
+.footer .latest-post {
+    float: left;
+    width: 39.6%;
+    margin-left: 6.1%;
+}
+
+.footer .content {
+    font-size: 0.875em;
+    color: #363c44;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.footer .content a,
+.footer .content a:visited {
+    text-decoration: none;
+    color: #363c44;
+}
+
+.main-container .main-content {
+    margin: 0 auto;
+    clear: both;
+}
+
+.main-content .features-title {
+    text-align: center;
+    margin: 5% auto 3% auto;
+}
+
+.features-title .features-title-text {
+    font-family: Helvetica;
+    font-size: 2.125em;
+    font-weight: bold;
+}
+
+.main-content .features-content {
+    margin: 1% auto;
+    clear: both;
+}
+
+.features-content .feature-option .image {
+    width: 150px;
+    margin: 3.5% auto 2% 19.53%;
+    float: left;
+}
+
+.feature-option .image img {
+    max-width: 100%;
+}
+
+.features-content .feature-option .content {
+    margin: 2% auto 2% 5%;
+    width: 48.83%;
+    float: left;
+}
+
+.feature-option .content .opt-title {
+    font-family: Helvetica;
+    font-size: 1.25em;
+    font-weight: bold;
+    color: #4a4a4a;
+}
+
+.feature-option .content .opt-description {
+    opacity: 0.9;
+    line-height: 1.5;
+}
+
+.feature-option .content a {
+    text-decoration: none;
+}
+
+.feature-option .content .opt-more {
+    font-weight: 600;
+    line-height: 1.5;
+    text-align: right;
+    color: #e75e00;
+}
+
+.main-container .divider {
+    clear: both;
+    border-style: solid;
+    border-width: .5px;
+    border-image-source: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(0, 0, 0, 0.1) 36%, rgba(0, 0, 0, 0.1) 64%, rgba(255, 255, 255, 0));
+    border-image-slice: 1;
+}
+
+.main-content .pricing-head {
+    text-align: center;
+    margin: 2% auto 1.75% auto;
+    padding: 0 1em;
+}
+
+.pricing-head .title-text {
+    font-family: Helvetica;
+    font-size: 3em;
+    font-weight: bold;
+    letter-spacing: -1.9px;
+}
+
+.main-content .pricing-subhead {
+    text-align: center;
+    padding: 0 1em;
+}
+
+.pricing-subhead .subhead-text {
+    opacity: 0.9;
+    margin: auto auto 1.5% auto;
+    font-size: 1.125em;
+    line-height: 0.86;
+}
+
+.main-content .credit-pack {
+    text-align: center;
+    padding: 0 1em;
+    margin: 4% auto 2% auto;
+}
+
+.credit-pack .credit-text {
+    opacity: 0.9;
+    font-size: 1.125em;
+    font-weight: bold;
+    line-height: 0.86;
+}
+
+.main-content .credits-table {
+    text-align: center;
+    width: 18.8%;
+    margin: 0 auto;
+    border-style: solid;
+    border-width: 1px;
+    border-image-source: linear-gradient(to bottom, #eaeaea, #d1d1d1);
+    background-color: #f3f7fb;
+    border-image-slice: 1;
+}
+
+.credits-table .table-fill {
+    background-color: #f3f7fb;
+    border-collapse: collapse;
+    margin: auto;
+    max-width: 250px;
+    padding: 0.1em;
+    width: 100%;
+}
+
+.table-fill th {
+    padding: .5em;
+    text-align: center;
+    vertical-align: middle;
+    background-color: #48545f;
+    color: #ffffff;
+    font-size: 1.1em;
+    line-height: 2;
+}
+
+tr {
+    border-top: 1px solid #c0d1e1;
+    border-bottom: 1px solid #c0d1e1;
+}
+
+tr:nth-child(even) td {
+    background-color: #ffffff;
+}
+
+tr:first-child {
+    border-top: none;
+}
+
+tr:last-child {
+    border-bottom: none;
+}
+
+td {
+    vertical-align: middle;
+    border-right: 1px solid #C1C3D1;
+    opacity: 0.9;
+    font-size: 1.0em;
+    line-height: 3;
+    color: #212121;
+}
+
+th:first-child {
+    border-right: solid 1px #35404b;
+}
+
+th.text-center,
+td.text-center {
+    text-align: center;
+}
+
+.main-content .high-pricing {
+    text-align: center;
+    font-size: 0.8em;
+}
+
+.main-content .faqs {
+    background-color: #f7f7f7;
+    overflow: hidden;
+    position: relative;
+    z-index: -1;
+    margin: -5% auto auto auto;
+}
+
+.faqs .faqs-title {
+    margin: 10.5% auto auto 5.5%;
+}
+
+.faqs-title .title-text {
+    font-family: Helvetica;
+    font-size: 2.0em;
+    font-weight: bold;
+}
+
+.faqs .faq-content {
+    margin: 2% auto;
+}
+
+.faq-content p.question {
+    opacity: 0.9;
+    font-size: 1.3em;
+    font-weight: 600;
+    line-height: 1.52;
+    color: #212121;
+}
+
+.faq-content p.answer {
+    line-height: 2;
+    color: #212121;
+}
+
+.faq-content .left-column {
+    margin: auto auto 5% 5.5%;
+    float: left;
+    width: 39.84%;
+}
+
+.faq-content .right-column {
+    margin: auto auto 5% 9.4%;
+    float: left;
+    width: 39.84%;
+}
+
+.faq-content .right-column p.answer img {
+    vertical-align: text-bottom;
+}
+
+.footer .company .content img {
+    max-width: 100%;
+}
+
+@media only screen and (max-width: 700px) {
+    body,
+    .main-container {
+        font-size: 0.875em;
+    }
+    .main-container .header {
+        margin: 0 auto;
+        text-align: center;
+    }
+    .header img {
+        margin: 2% auto;
+        max-width: 100%;
+    }
+    .header .nav-wrapper .inner-wrap {
+        margin: 1% auto;
+    }
+    .header .nav-wrapper .nav-elements {
+        width: 225px;
+        margin: auto auto 19% auto;
+        float: none !important;
+        text-align: center;
+    }
+    .title-head .main-title {
+        font-size: 2.0em;
+        letter-spacing: 0;
+    }
+    .main-container .feature-image {
+        margin: 10% auto auto auto;
+        width: 90%;
+    }
+    .feature-image .request-access {
+        margin: auto auto 5% auto;
+    }
+    .get-start-container .request-access .email-input {
+        width: 70%;
+        padding: 2% 1%;
+        margin: 2% auto auto auto;
+    }
+    .request-access .email-input {
+        width: 70%;
+        padding: 2% 1%;
+        margin: 2% auto auto auto;
+    }
+    .get-start-container .request-access .request-button {
+        margin: 2% auto;
+        padding: 2.5% 2.5%;
+    }
+    .request-access .request-button {
+        margin: 2% auto;
+        padding: 3% 3%;
+    }
+    .request-access .error-msg,
+    .request-access .error-msg-one {
+        text-align: center;
+    }
+    .feature .feature-image .chat-bots {
+        margin: 20% auto auto auto;
+    }
+    .process-container .process-content .compose,
+    .feature-container .feature-content .customizable,
+    .process-container .process-content .analyze,
+    .feature-container .feature-content .scoring,
+    .process-container .process-content .send,
+    .feature-container .feature-content .segmentation {
+        float: none !important;
+        margin: 0 auto;
+        width: 90%;
+        text-align: center;
+    }
+    .title-head .start-head {
+        font-size: 2.0em;
+        letter-spacing: 0;
+    }
+    .get-start-container .title-head {
+        margin: 10% auto auto auto;
+    }
+    .how-it-works .how-it-works-text {
+        font-size: 1.75em;
+    }
+    .feature-title .feature-title-text {
+        font-size: 1.75em;
+    }
+    .footer .company,
+    .footer .product,
+    .footer .social,
+    .footer .latest-post {
+        margin: 0 auto;
+        width: 50%;
+        float: none !important;
+    }
+    /* Pricing Page  */
+    .main-content .pricing-head .title-text {
+        font-size: 1.75em;
+        letter-spacing: 0;
+    }
+    .faq-content .left-column,
+    .faq-content .right-column {
+        margin: 0 auto;
+        float: none !important;
+        width: 90%;
+    }
+    .faqs .faqs-title .title-text {
+        font-size: 1.75em;
+    }
+    .pricing-subhead .subhead-text {
+        font-size: 1em;
+    }
+    .main-content .credits-table {
+        width: 50%;
+    }
+    .table-fill th,
+    .table-fill td {
+        font-size: .75em;
+    }
+    .main-content .pricing-subhead {
+        margin: auto auto 5% auto;
+    }
+    /* Features Page */
+    .features-title .features-title-text {
+        font-size: 1.75em;
+    }
+    .features-content .feature-option .image,
+    .features-content .feature-option .content {
+        width: 90%;
+        margin: 0 auto;
+        float: none !important;
+        text-align: center;
+    }
+    .feature-option .content .opt-more {
+        text-align: center;
+    }
+}

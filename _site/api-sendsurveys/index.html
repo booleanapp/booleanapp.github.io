@@ -1,0 +1,526 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="/css/screen.css">
+	<link rel="icon" type="image/png" href="/favicon.png">
+	<!-- Begin Jekyll SEO tag v2.1.0 -->
+<title>/Sendsurveys - Boolean</title>
+<meta property="og:title" content="/Sendsurveys" />
+<link rel="canonical" href="/api-sendsurveys/" />
+<meta property="og:url" content="/api-sendsurveys/" />
+<meta property="og:site_name" content="Boolean" />
+<script type="application/ld+json">
+{"@context": "http://schema.org",
+"@type": "WebPage",
+"headline": "/Sendsurveys",
+"url": "/api-sendsurveys/"}</script>
+<!-- End Jekyll SEO tag -->
+
+	
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+</head>
+	<body>
+		<header>
+			<div class="container">
+				<div class="company-name"><a href="/"><img src="/images/logo.jpg" alt="Logo" width="100" height="23" /></a></div>
+				<nav>
+	<a class="nav-toggle" id="open-nav" href="#">&#9776;</a>
+	
+		
+		
+
+		
+		<a href="/pricing/
+" class="" >Pricing</a>
+	
+		
+		
+
+		
+		<a href="/docs/
+" class="" >Docs</a>
+	
+		
+		
+
+		
+		<a href="https://goo.gl/forms/bE1Nk8cCStqqAdHn2
+" class=" highlight" target="_blank">Request access</a>
+	
+</nav>
+
+			</div>
+		</header>
+		<div class="content">
+	<section class="page">
+		<div class="container ">
+			
+				<h2>/Sendsurveys</h2>
+			
+			
+			<h2 id="post-sendsurveys">POST /sendsurveys</h2>
+
+<p>Used to send surveys</p>
+
+<h3 id="query-parameters">Query parameters</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Parameter</th>
+      <th>Required</th>
+      <th>Requirements</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>transaction</td>
+      <td>No</td>
+      <td>“yes” or “no”</td>
+      <td>Transactional surveys will have transaction information (identifier, date amd amount) prominenty displayed in survey email. Some JSON parameters in payload are mandatory for transactional surveys. If this query parameter is not provided then the survey will be assumed to be transactional.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="json-parameters">JSON parameters</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Parameter</th>
+      <th>Required</th>
+      <th>Requirements</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>$email</td>
+      <td>Yes</td>
+      <td>email address. Max 75 characters.</td>
+      <td>Email address of recipient</td>
+    </tr>
+    <tr>
+      <td>properties</td>
+      <td>No</td>
+      <td>Dictionary/map</td>
+      <td>Property name and data type once set cannot be changed. If you try to send a wrong data type for an existing property your survey request will be rejected. You can use any UTF-8 string that doesn’t begin with “$” to name your properties. Spaces and hyphens are not allowed between characters of the name. Underscore is allowed. Spaces before and after the name will be automatically removed. Your property names cannot be longer than 255 characters. Data type needs to be defined along with property name in each API request.</td>
+    </tr>
+    <tr>
+      <td>$transaction_id</td>
+      <td>No</td>
+      <td>String, max 50 characters</td>
+      <td>The unique identification number of the transaction. Mandatory for transactional surveys.</td>
+    </tr>
+    <tr>
+      <td>$transaction_date</td>
+      <td>No</td>
+      <td>YYYY-MM-DDTHH:MM:SSZ (UTC time) or YYYY-MM-DDTHH:MM:SSZ±00:00 (local time with UTC offset) or 1474698657 (epoch)</td>
+      <td>Time of transaction. Mandatory for transactional surveys.</td>
+    </tr>
+    <tr>
+      <td>$transaction_amount</td>
+      <td>No</td>
+      <td>Number (double). Max 9999999999</td>
+      <td>Transaction amount paid by customer. Mandatory for transactional surveys.</td>
+    </tr>
+    <tr>
+      <td>$transaction_currency</td>
+      <td>No</td>
+      <td>INR, USD, EUR, JPY, GBP or CNY</td>
+      <td>Currency. Mandatory for transactional surveys.</td>
+    </tr>
+    <tr>
+      <td>$send_at</td>
+      <td>No</td>
+      <td>YYYY-MM-DDTHH:MM:SSZ (UTC time) or YYYY-MM-DDTHH:MM:SSZ±00:00 (local time with UTC offset) or 1474698657 (epoch)</td>
+      <td>Use this for scheduling survey for a later time</td>
+    </tr>
+    <tr>
+      <td>$delay</td>
+      <td>No</td>
+      <td>Seconds</td>
+      <td>Use this to delay sending of survey. By default surveys are sent with few minutes</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="property-data-types">Property data types</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Property type</th>
+      <th>Notation</th>
+      <th>Data limits</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>String</td>
+      <td>S</td>
+      <td>Max 255 characters</td>
+    </tr>
+    <tr>
+      <td>Number</td>
+      <td>N</td>
+      <td>Max 9999999999</td>
+    </tr>
+    <tr>
+      <td>Date</td>
+      <td>D</td>
+      <td>YYYY-MM-DDTHH:MM:SSZ (UTC time) or YYYY-MM-DDTHH:MM:SSZ±00:00 (local time with UTC offset) or 1474698657 (epoch). Pleast note that time zone specification is mandatory for date properties.</td>
+    </tr>
+    <tr>
+      <td>Boolean</td>
+      <td>B</td>
+      <td>true or false</td>
+    </tr>
+    <tr>
+      <td>String set</td>
+      <td>SS</td>
+      <td>Max 20 items in array, each string max 255 characters</td>
+    </tr>
+    <tr>
+      <td>Number set</td>
+      <td>NS</td>
+      <td>Max 20 items in array, each number max 9999999999</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="example">Example</h4>
+
+<p>POST <code class="highlighter-rouge">/sendsurveys</code></p>
+
+<h5 id="json-parameters-1">JSON Parameters</h5>
+
+<div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"$email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test1@test.com"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"$transaction_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1231"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"$transaction_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-01-13T04:30:30Z"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"$transaction_amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">1222</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"$transaction_currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"INR"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"properties"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"city"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">"S"</span><span class="p">:</span><span class="w"> </span><span class="s2">"chennai"</span><span class="p">},</span><span class="w">
+            </span><span class="nt">"order_delivery_date"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">"D"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-01-13T04:30:30Z"</span><span class="p">},</span><span class="w">
+            </span><span class="nt">"order_item_skus"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">"SS"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"BP00121312"</span><span class="p">,</span><span class="w"> </span><span class="s2">"BP01283232"</span><span class="p">]},</span><span class="w">
+            </span><span class="nt">"order_item_prices"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">"NS"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"1203"</span><span class="p">,</span><span class="w"> </span><span class="s2">"1231"</span><span class="p">]},</span><span class="w">
+            </span><span class="nt">"first_time_customer"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">"B"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">}</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre>
+</div>
+
+<h5 id="response">Response</h5>
+
+<div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="err">HTTP</span><span class="w"> </span><span class="mi">1</span><span class="err">/</span><span class="mf">1.1</span><span class="w"> </span><span class="mi">200</span><span class="w">
+</span><span class="p">{</span><span class="w">
+    </span><span class="nt">"request_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"rezhpxd-caisogk-yefbbdx-mqoeigi"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"response"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"$email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test1@test.com"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"accepted"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"errors"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+</div>
+
+<h4 id="example-1">Example</h4>
+
+<p>POST <code class="highlighter-rouge">/sendsurveys</code></p>
+
+<h5 id="json-parameters-2">JSON Parameters</h5>
+
+<div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"$email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test1@test.com"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"$transaction_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1231"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"$transaction_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-01-13T04:30:30Z"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"$transaction_amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">1222</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"$transaction_currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"INR"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"properties"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"city"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">"S"</span><span class="p">:</span><span class="w"> </span><span class="s2">"chennai"</span><span class="p">},</span><span class="w">
+            </span><span class="nt">"order_delivery_date"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">"D"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-01-13"</span><span class="p">},</span><span class="w">
+            </span><span class="nt">"order_item_skus"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">"SS"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"BP00121312"</span><span class="p">,</span><span class="w"> </span><span class="s2">"BP01283232"</span><span class="p">]},</span><span class="w">
+            </span><span class="nt">"order_item_prices"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">"NS"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"1203"</span><span class="p">,</span><span class="w"> </span><span class="s2">"1231"</span><span class="p">]},</span><span class="w">
+            </span><span class="nt">"first_time_customer"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">"B"</span><span class="p">:</span><span class="w"> </span><span class="s2">"not"</span><span class="p">}</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre>
+</div>
+
+<h5 id="response-1">Response</h5>
+
+<div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="err">HTTP</span><span class="w"> </span><span class="mi">1</span><span class="err">/</span><span class="mf">1.1</span><span class="w"> </span><span class="mi">200</span><span class="w">
+</span><span class="p">{</span><span class="w">
+    </span><span class="nt">"request_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"jnepqph-lllicpc-seunxpg-qutsywe"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"response"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"$email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test3@test.com"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"failure"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"errors"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                </span><span class="p">{</span><span class="w">
+                    </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">1001</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"field"</span><span class="p">:</span><span class="w"> </span><span class="s2">"order_delivery_date"</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Date should be in ISO 8601 format or epoch"</span><span class="w">
+                </span><span class="p">},</span><span class="w">
+                </span><span class="p">{</span><span class="w">
+                    </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">1001</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"field"</span><span class="p">:</span><span class="w"> </span><span class="s2">"first_time_customer"</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Boolean value should be either true or false"</span><span class="w">
+                </span><span class="p">}</span><span class="w">
+            </span><span class="p">]</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+</div>
+
+<h4 id="example-2">Example</h4>
+
+<p>POST <code class="highlighter-rouge">/sendsurveys</code></p>
+
+<h5 id="json-parameters-3">JSON parameters</h5>
+
+<div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"$email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test1@test.com"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"$transaction_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1235"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"$transaction_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-01-13T04:30:30Z"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"$transaction_amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">1222</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"$transaction_currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"INR"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"properties"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"city"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">"S"</span><span class="p">:</span><span class="w"> </span><span class="s2">"chennai"</span><span class="p">},</span><span class="w">
+            </span><span class="nt">"order_delivery_date"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">"D"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-01-13T04:30:30Z"</span><span class="p">},</span><span class="w">
+            </span><span class="nt">"order_item_skus"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">"SS"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"BP00121312"</span><span class="p">,</span><span class="w"> </span><span class="s2">"BP01283232"</span><span class="p">]},</span><span class="w">
+            </span><span class="nt">"order_item_prices"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">"NS"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"1203"</span><span class="p">,</span><span class="w"> </span><span class="s2">"1231"</span><span class="p">]},</span><span class="w">
+            </span><span class="nt">"first_time_customer"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">"B"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">}</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"$email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test2@test.com"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"$transaction_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1236"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"$transaction_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-01-13T04:30:30Z"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"$transaction_amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">1499</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"$transaction_currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"INR"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"properties"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"city"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">"S"</span><span class="p">:</span><span class="w"> </span><span class="s2">"chennai"</span><span class="p">},</span><span class="w">
+            </span><span class="nt">"order_delivery_date"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">"D"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-01-13T04:30:30Z"</span><span class="p">},</span><span class="w">
+            </span><span class="nt">"order_item_skus"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">"SS"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"BP00121312"</span><span class="p">,</span><span class="w"> </span><span class="s2">"BP01283232"</span><span class="p">]},</span><span class="w">
+            </span><span class="nt">"order_item_prices"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">"NS"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"1203"</span><span class="p">,</span><span class="w"> </span><span class="s2">"1231"</span><span class="p">]},</span><span class="w">
+            </span><span class="nt">"first_time_customer"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">"B"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">}</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"$email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test3@test.com"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"$transaction_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1237"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"$transaction_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-01-13T04:30:30Z"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"$transaction_amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">1599</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"$transaction_currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"INR"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"properties"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"city"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">"S"</span><span class="p">:</span><span class="w"> </span><span class="s2">"chennai"</span><span class="p">},</span><span class="w">
+            </span><span class="nt">"order_delivery_date"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">"D"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016/02/01"</span><span class="p">},</span><span class="w">
+            </span><span class="nt">"order_item_skus"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">"SS"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"BP00121312"</span><span class="p">,</span><span class="w"> </span><span class="s2">"BP01283232"</span><span class="p">]},</span><span class="w">
+            </span><span class="nt">"order_item_prices"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">"NS"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"1203"</span><span class="p">,</span><span class="w"> </span><span class="s2">"1231"</span><span class="p">]},</span><span class="w">
+            </span><span class="nt">"first_time_customer"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">"B"</span><span class="p">:</span><span class="w"> </span><span class="s2">"random"</span><span class="p">}</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre>
+</div>
+
+<h5 id="response-2">Response</h5>
+
+<div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="err">HTTP</span><span class="mi">1</span><span class="err">/</span><span class="mf">1.1</span><span class="w"> </span><span class="mi">200</span><span class="w">
+</span><span class="p">{</span><span class="w">
+    </span><span class="nt">"request_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"kpbnvsw-lcipenh-dazprqd-jzlwstr"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"response"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"$email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test1@test.com"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"accepted"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"errors"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"$email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test2@test.com"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"accepted"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"errors"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"$email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test3@test.com"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"failure"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"errors"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                </span><span class="p">{</span><span class="w">
+                    </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">1001</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"field"</span><span class="p">:</span><span class="w"> </span><span class="s2">"order_delivery_date"</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Date should be in ISO 8601 format with UTC time zone"</span><span class="w">
+                </span><span class="p">},</span><span class="w">
+                </span><span class="p">{</span><span class="w">
+                    </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">1001</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"field"</span><span class="p">:</span><span class="w"> </span><span class="s2">"first_time_customer"</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Boolean value should be either true or false"</span><span class="w">
+                </span><span class="p">}</span><span class="w">
+            </span><span class="p">]</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+</div>
+
+<h4 id="example-3">Example</h4>
+
+<p>POST <code class="highlighter-rouge">/sendsurveys?transaction=no</code></p>
+
+<h5 id="json-parameters-4">JSON Parameters</h5>
+
+<div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"$email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test1@test.com"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"properties"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"city"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">"S"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bangalore"</span><span class="p">},</span><span class="w">
+            </span><span class="nt">"order_delivery_date"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">"D"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-01-13T04:30:30Z"</span><span class="p">},</span><span class="w">
+            </span><span class="nt">"order_item_skus"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">"SS"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"AP00121412"</span><span class="p">,</span><span class="w"> </span><span class="s2">"BP01283901"</span><span class="p">]},</span><span class="w">
+            </span><span class="nt">"order_item_prices"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">"NS"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"9203"</span><span class="p">,</span><span class="w"> </span><span class="s2">"8231"</span><span class="p">]},</span><span class="w">
+            </span><span class="nt">"first_time_customer"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">"B"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">}</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre>
+</div>
+
+<h5 id="response-3">Response</h5>
+
+<div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="err">HTTP</span><span class="w"> </span><span class="mi">1</span><span class="err">/</span><span class="mf">1.1</span><span class="w"> </span><span class="mi">200</span><span class="w">
+</span><span class="p">{</span><span class="w">
+    </span><span class="nt">"request_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"rezhpxd-caisogk-yefbbdx-mqoeigi"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"response"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"$email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test1@test.com"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"accepted"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"errors"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+</div>
+
+<h4 id="notes">Notes</h4>
+
+<ul>
+  <li>
+    <p>Max 50 properties per project.</p>
+  </li>
+  <li>
+    <p>Max 10000 surveys per API call.</p>
+  </li>
+  <li>
+    <p>Max 10 API calls per sec.</p>
+  </li>
+  <li>
+    <p>Surveys are usually sent within few minutes of accepting.</p>
+  </li>
+  <li>
+    <p>If same survey is requested again, a “duplicate request” error will be returned. A unique survey is identified by combination of project_id and transaction_id.</p>
+  </li>
+  <li>
+    <p>Please check “message” and “errors” parameters for surveys which were not processed. These need to be tried again.</p>
+  </li>
+  <li>
+    <p>If an API request has more than 50 properties, then 1003 error will be returned.</p>
+  </li>
+  <li>
+    <p>The API payload should always be a JSON array (even for a single survey request).</p>
+  </li>
+</ul>
+
+<h4 id="error-codes">Error codes</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>Code</th>
+      <th>Message</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1000</td>
+      <td>Error</td>
+      <td>Default error</td>
+    </tr>
+    <tr>
+      <td>1001</td>
+      <td>Invalid format</td>
+      <td>Invalid formt of data</td>
+    </tr>
+    <tr>
+      <td>1002</td>
+      <td>Already exists</td>
+      <td>Property already exists with different data type</td>
+    </tr>
+    <tr>
+      <td>1003</td>
+      <td>Quota exceeded</td>
+      <td>Property quota exceeded. Max 50 properties per project</td>
+    </tr>
+    <tr>
+      <td>1004</td>
+      <td>Duplicate request</td>
+      <td>A survey for same transaction_id was already sent</td>
+    </tr>
+    <tr>
+      <td>1006</td>
+      <td>Required property missing</td>
+      <td>One or more required property is missing</td>
+    </tr>
+    <tr>
+      <td>1009</td>
+      <td>Invalid Value</td>
+      <td>Value is incorrect for given field.</td>
+    </tr>
+  </tbody>
+</table>
+
+		</div>
+	</section>
+</div>
+
+		<footer>
+			<div class="container">
+				<p class="editor-link"><a href="cloudcannon:collections/_data/footer.yml" class="btn"><strong>&#9998;</strong> Edit footer</a></p>
+				<div class="footer-columns">
+					
+					<ul class="footer-links">
+						
+					</ul>
+					
+					<ul class="footer-links">
+						
+					</ul>
+					
+					<ul class="footer-links">
+						
+					</ul>
+					
+				</div>
+				<p class="copyright">&copy; 2017 Boolean Inc. • <a href="/terms/">Terms</a> &amp; <a href="/privacy/">Privacy</a> • Made with <a href="https://jekyllrb.com/" target="_blank">Jekyll</a> and <a href="https://pages.github.com/" target="_blank">Github Pages</a>. • Template by <a href="https://cloudcannon.com/" target="_blank">CloudCannon</a></p>
+			</div>
+		</footer>
+		<script>
+			document.getElementById("open-nav").onclick = function () {
+				document.body.classList.toggle("nav-open");
+				return false;
+			};
+		</script>
+	</body>
+</html>

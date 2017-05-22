@@ -1,0 +1,438 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="/css/screen.css">
+	<link rel="icon" type="image/png" href="/favicon.png">
+	<!-- Begin Jekyll SEO tag v2.1.0 -->
+<title>Documentation - Boolean</title>
+<meta property="og:title" content="Documentation" />
+<link rel="canonical" href="/docs/" />
+<meta property="og:url" content="/docs/" />
+<meta property="og:site_name" content="Boolean" />
+<script type="application/ld+json">
+{"@context": "http://schema.org",
+"@type": "WebPage",
+"headline": "Documentation",
+"url": "/docs/"}</script>
+<!-- End Jekyll SEO tag -->
+
+	
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+</head>
+	<body>
+		<header>
+			<div class="container">
+				<div class="company-name"><a href="/"><img src="/images/logo.jpg" alt="Logo" width="100" height="23" /></a></div>
+				<nav>
+	<a class="nav-toggle" id="open-nav" href="#">&#9776;</a>
+	
+		
+		
+
+		
+		<a href="/pricing/
+" class="" >Pricing</a>
+	
+		
+		
+
+		
+		<a href="/docs/
+" class=" active" >Docs</a>
+	
+		
+		
+
+		
+		<a href="https://goo.gl/forms/bE1Nk8cCStqqAdHn2
+" class=" highlight" target="_blank">Request access</a>
+	
+</nav>
+
+			</div>
+		</header>
+		<div class="content">
+	<section class="page">
+		<div class="container ">
+			
+				<h2>Documentation</h2>
+			
+			
+			<h1 id="introduction">Introduction</h1>
+
+<h2 id="what-is-boolean">What is Boolean?</h2>
+
+<p>Boolean helps you send one question email surveys to your users. Recipients can answer the question with a single click from within their inbox.</p>
+
+<h2 id="what-kind-of-questions-can-i-ask">What kind of questions can I ask?</h2>
+
+<p>You can ask any question. You have to provide 2 choices for answer. One choice should be positive and other negative.</p>
+
+<h2 id="how-do-i-get-insights-from-responses">How do I get insights from responses?</h2>
+
+<p>Our dashboard will show you real time scores on positive and negative responses. You can tag surveys with meta data and use our segmentation feature to slice and dice responses. Using segmentation, you will be able to find deficiencies in your product/service which are causing negative responses.</p>
+
+<h2 id="why-only-one-question">Why only one question?</h2>
+
+<p>Traditional feedback surveys don’t get many responses because they are too long and specific. Boolean’s one question tremendously reduces the effort to respond resulting in high response rate. You don’t lose the specifics as survey meta data can be analyzed to find deficiencies in your product/service.</p>
+
+<h2 id="how-do-i-get-help">How do I get help?</h2>
+
+<p>Please email us at support@booleanapp.com. You can expect a fast reply during (9AM EST to 5PM EST) and (4:30 AM GMT to 11:30AM GMT) on weekdays. We will respond to emails received during weekend on Monday in the order they were received.</p>
+
+<h1 id="key-concepts">Key Concepts</h1>
+
+<h2 id="project">Project</h2>
+
+<p>A specific question to ask your users with positive and negative answer options. You can create multiple projects to ask questions about different aspects of your product/service.</p>
+
+<h2 id="survey">Survey</h2>
+
+<p>An individual email sent to a user as part of a project. You will typically send many surveys in a project. There are two kinds of surveys in Boolean - transactional and non-transactional. We have kept this distinction to slightly change the look of survey depending on its type. You can send both kinds in a project.</p>
+
+<h2 id="transactional-surveys">Transactional surveys</h2>
+
+<p>Transactional surveys are questions you would ask your users about an order/transaction they placed with you. They can only be sent using REST API. Since a user is likely to have placed multiple orders/transactions with your product it is important to identify the specific order/transaction inside the survey. Boolean does this by displaying four properties of the transaction at the top of the survey email - transaction date, transaction amount, transaction currency and transaction number. These four properties are mandatory for sending a transactional survey. The API will reject survey requests which miss any of the four properties.</p>
+
+<h2 id="non-transactional-surveys">Non-transactional surveys</h2>
+
+<p>Non-transactional surveys are general questions you would ask your users about your product/service. They can be sent from dashboard and using REST API. There are no required properties. You can use them for asking general feedback on your product/service to your users.</p>
+
+<h2 id="response">Response</h2>
+
+<p>A user’s answer to survey. It can be positive or negative. The positive and negative answers are set when creating a project.</p>
+
+<h2 id="score">Score</h2>
+
+<p>It is the metric for inferring user satisfaction from survey responses. Boolean provide two metrics - “Positive score” and “Boolean score”. “Positive score” is the percentage of positive responses in a project in a time period. “Boolean score” uses a proprietary algorithm to give a rating from -1 to +1 for a project in a time period. The higher the rating the happier are your users.</p>
+
+<h1 id="sending-surveys">Sending surveys</h1>
+
+<p>It is easy to send surveys in Boolean. It is done in 2 steps:</p>
+
+<ol>
+  <li>Create project.</li>
+  <li>Send surveys.</li>
+</ol>
+
+<h2 id="create-project">Create project</h2>
+
+<h3 id="basic-project-settings">Basic project settings</h3>
+
+<p>You will need to provide the following minimum settings to create a project.</p>
+
+<h4 id="company-name">Company name</h4>
+
+<p>Provide the name of your Company. It will be used in the survey email subject. The standard subject of all surveys is “Quick feedback on &lt;product/service name&gt;”.</p>
+
+<h4 id="company-logo">Company logo</h4>
+
+<p>Upload a easily identifiable logo of your product/service. It will be used in the header of survey email.</p>
+
+<h4 id="survey-question">Survey question</h4>
+
+<p>Provide the question to ask your users (max 60 characters).</p>
+
+<h4 id="positive-response">Positive response</h4>
+
+<p>Provide the positive answer for your question (max 10 characters). This answer will have a green background in the survey email.</p>
+
+<h4 id="negative-response">Negative response</h4>
+
+<p>Provide the negative answer for your question (max 10 characters). This answer will have a red background in the survey email.</p>
+
+<h3 id="advanced-project-settings">Advanced project settings</h3>
+
+<p>These settings are not compulsory. They have good defaults. You can customize them if you want.</p>
+
+<h4 id="project-name">Project name</h4>
+
+<p>A name for your project. It will default to “<strong>project</strong> <strong>date</strong>”. It can be changed later.</p>
+
+<h4 id="email-subject">Email subject</h4>
+
+<p>The default subject is “Quick feedback on <strong>your company name</strong>”. You can change it to “Quick feedback on your <strong>keyword</strong> with <strong>your company name</strong>”. 
+For example, an E-Commerce company use “Quick feedback on your order with abcshoes.com”. For example an Airline company can use “Quick feedback on your flight with abcairlines”.</p>
+
+<h4 id="reply-to-email-address">Reply-to email address</h4>
+
+<p>Boolean will add this email address to the “reply-to” header of survey email. If any of your users reply to survey email it will be sent to this address. Otherwise by default any reply to survey email will be rejected. We encourage you to add your customer support email address to here to get valuable feedback directly to your support inbox.</p>
+
+<h4 id="time-zone">Time-zone</h4>
+
+<p>Select time-zone of your location. It will be used as basis for all dashboard reports. You can change it later. If you and your users are located in different time zones, then we suggest you use your time zone as it will suit your daily schedule.</p>
+
+<h4 id="send-throttle-day">Send throttle (day)</h4>
+
+<p>It is not a good idea sending too many surveys to a single user. So Boolean throttles the number of surveys an individual user (unique email address) gets in a day, week and month. Boolean will ignore any new survey requests for a throttled user. By default, a user will get maximum 1 survey per project per day. You can increase it to 2.</p>
+
+<h4 id="send-throttle-week">Send throttle (week)</h4>
+
+<p>By default, a user will get maximum 2 survey per project per week. You can increase it up to 4.</p>
+
+<h4 id="send-throttle-month">Send throttle (month)</h4>
+
+<p>By default, a user will get maximum 3 survey per project per month. You can increase it up to 6.</p>
+
+<h2 id="sending-surveys-1">Sending surveys</h2>
+
+<p>Once a project is created you can immediately start sending surveys. There are 2 ways to send surveys - sending from dashboard, sending through API. Please note that you can send non-transactional surveys only from dashboard.</p>
+
+<h3 id="sending-non-transactional-surveys">Sending non-transactional surveys</h3>
+
+<p>You can quickly send non-transactional surveys from within the dashboard. All you need is a list of your user’s email addresses.</p>
+
+<ol>
+  <li>Go to “send surveys” section.</li>
+  <li>Import email addresses by either pasting them in comma separated format or importing a CSV file. You can import a maximum of 1000 email addresses in both methods. If you are using CSV method make sure all email addresses are in the first column. You can download a sample CSV file from the link provided.</li>
+  <li>You will be shown a preview of emails to which surveys will be sent. Boolean will remove duplicates and emails which have already hit daily/weekly/monthly throttle limits. After verifying the list, you can send the surveys by clicking “send”. Your surveys will be delivered in few minutes.</li>
+</ol>
+
+<h3 id="sending-transactional-and-non-transactional-surveys-through-api">Sending transactional and non-transactional surveys through API</h3>
+
+<p>Read <a href="/api/">API documentation</a>.</p>
+
+<h3 id="properties">Properties</h3>
+
+<p>You can add data about user’s unique interaction with your product/service as “properties” of a survey. Boolean supports six different types of properties - Number, String, Number set, String set, Date and Boolean. The table below explains each type of property.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Property type</th>
+      <th>Examples</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Number</td>
+      <td>Order amount, visit count, page views</td>
+    </tr>
+    <tr>
+      <td>String</td>
+      <td>Customer name, Item name, City</td>
+    </tr>
+    <tr>
+      <td>Number set</td>
+      <td>Order item prices, Delivery zip codes</td>
+    </tr>
+    <tr>
+      <td>String set</td>
+      <td>Order item names, Delivery city names</td>
+    </tr>
+    <tr>
+      <td>Boolean</td>
+      <td>Returning customer (Yes or No)</td>
+    </tr>
+    <tr>
+      <td>Date</td>
+      <td>Order date, delivery date</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Properties can be set while sending surveys through API. You can send a maximum of 50 unique properties per project. Adding properties will allow you to segment responses and find reasons for negative feedback. Please read <a href="/api/">API documentation</a> for detailed guide on sending properties.</p>
+
+<h3 id="unsubscribes">Unsubscribes</h3>
+
+<p>A user can opt to stop receiving surveys from a project by clicking unsubscribe link in the email. We have provided this feature to protect users from unwanted email. Unsubscribing is at project level. You can’t re-subscribe an unsubscribed user. Be considerate with the number of surveys you send out to each user. Use “throttling” project setting judiciously. You can also unsubscribe users through API.</p>
+
+<h1 id="analyzing-responses">Analyzing responses</h1>
+
+<h2 id="score-1">Score</h2>
+
+<p>Boolean provides two metrics for analyzing responses at the project level - “Positive score” and “Boolean score”. Both these metrics attempt to capture overall satisfaction of your users.</p>
+
+<h2 id="positive-score">Positive score</h2>
+
+<p>It is the percentage of positive responses in a time period. You can see this score for all projects in the dashboard page. Once inside a project you can see it in the “score” page. The score page will also have a graph to show the trend of positive score in current week. You can also get this score through API.</p>
+
+<h2 id="boolean-score">Boolean score</h2>
+
+<p>It is rating from -1 to +1 derived from count of positive responses, negative responses and no responses (and email not opened) and no responses (and email opened). We have created this metric because “Positive score” can be misleading at times. For example, if you sent 1000 surveys and got only 10 responses which were all positive you will see a positive score of 100%. This is misleading as majority of your users didn’t give a response. A user opting to not give a response can be treated as a signal of his/her dissatisfaction. “Boolean score” incorporates this signal in its calculation of rating. Since Boolean knows when a survey is delivered or opened by user it can use a “no response” as a signal with confidence.
+You can see this score for all projects in the dashboard page. Once inside a project you can see it in the “score” page. You can also get this score through API.</p>
+
+<h2 id="segmenting-responses">Segmenting responses</h2>
+
+<p>You can segment responses to see variations in scores across different combinations of properties. You will be able to find segments which have lower scores compared to overall average. Some aspects of your product/service in these segments are probably causing bad experience to your users. You can improve these aspects and come back to check for improvement in scores. This the true power of Boolean’s one question surveys. High volume user feedback combined with segmentation will give you valuable ideas to improve your product/service.</p>
+
+<h3 id="key-concepts-in-segmentation">Key concepts in segmentation</h3>
+
+<h4 id="operator">Operator</h4>
+
+<p>An operator is a logic function used with properties. The table below lists available operators and allowed property types.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Operator</th>
+      <th>Property types</th>
+      <th>Example</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Less than</td>
+      <td>Number, Date</td>
+      <td>Cart value less than 500</td>
+    </tr>
+    <tr>
+      <td>Less than or equal to</td>
+      <td>Number, Date</td>
+      <td>Items in cart less than or equal to 3</td>
+    </tr>
+    <tr>
+      <td>Greater than</td>
+      <td>Number, Date</td>
+      <td>Age greater than 21</td>
+    </tr>
+    <tr>
+      <td>Greater than or equal to</td>
+      <td>Number, Date</td>
+      <td>Cart total greater than or equal to 499</td>
+    </tr>
+    <tr>
+      <td>Exactly equal</td>
+      <td>Number, String, Boolean</td>
+      <td>City name exactly equal to “San Francisco”</td>
+    </tr>
+    <tr>
+      <td>Exactly not equal</td>
+      <td>Number, String, Boolean</td>
+      <td>Customer category exactly not equal to “Enterprise”</td>
+    </tr>
+    <tr>
+      <td>Is set</td>
+      <td>Number, String, Number set, String set, Date, Boolean</td>
+      <td>“Mini bar usage” is set</td>
+    </tr>
+    <tr>
+      <td>Is not set</td>
+      <td>Number, String, Number set, String set, Date, Boolean</td>
+      <td>“Web check-in” is not set</td>
+    </tr>
+    <tr>
+      <td>Contains</td>
+      <td>String, String set</td>
+      <td>Product name contains “organic”</td>
+    </tr>
+    <tr>
+      <td>Contains exactly</td>
+      <td>String, Number set, String set</td>
+      <td>Product name contains exactly “farm fresh”</td>
+    </tr>
+    <tr>
+      <td>Does not contain</td>
+      <td>String, Number set, String set</td>
+      <td>Product name does not contain “phone”</td>
+    </tr>
+    <tr>
+      <td>on</td>
+      <td>Date</td>
+      <td>Order placed on 21-10-2012</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="value">Value</h4>
+
+<p>Value is data of a property. For example, a “city” property can have value “New York City”.</p>
+
+<h4 id="rule">Rule</h4>
+
+<p>A rule is a logical condition used to validate responses. It is a combination of property, operator and value. For example, “operating system (property) is (operator) Android (value)”. A successful validation is called a “hit” and a failed validation is called a “miss”. One or more rules together form a “filter”. A response will pass a filter if one or more rules is a “hit”.</p>
+
+<h4 id="association">Association</h4>
+
+<p>An association defines how multiple rules are used together in filtering responses. In “AND” aggregation a response will pass the filter if all the rules are a hit. In “ANY” aggregation a response will pass the filter it at least one of the rules is a hit.</p>
+
+<h3 id="segmenting-responses-in-dashboard">Segmenting responses in dashboard</h3>
+
+<p>You create a segment by using a filter for responses. You need to select an “association” and add one or more rules to create a filter.
+Follow these steps given below to add a rule:</p>
+
+<ol>
+  <li>Click the plus icon. You will immediately see a list of all available properties.</li>
+  <li>Select a property. You will immediately see list of all available operators for the selected property.</li>
+  <li>Select an operator. You will immediately see a text box or drop down depending on selected operator.</li>
+  <li>Input a value.</li>
+</ol>
+
+<p>Scores will update immediately after you add a rule. You can repeat above steps for adding multiple rules. You can remove a rule by clicking the cross icon. You can add a maximum of 5 rules.</p>
+
+<h4 id="top-hits-segmentation">Top hits segmentation</h4>
+
+<p>Sometimes you would like to compare scores of most popular values for property. For example, E-commerce company would like to compare scores of its 10 most popular delivery cities. Boolean’s “Top hits segmentation” feature can do this automatically for you. Just select the relevant property from the “Top hits segmentation” drop down. The graph will automatically update with score trends of top 10 values of selected property. The values are selected based on number of responses they received. This feature saves you lot of time as the alternative would be to find top 10 values manually, create a filter for each value, record it’s score and compare. When using this feature, you don’t even need to know the top values for a property!</p>
+
+<h3 id="segmenting-responses-through-api">Segmenting responses through API</h3>
+
+<p>Read API documentation.</p>
+
+<h3 id="comments">Comments</h3>
+
+<p>Users can give textual feedback if they wish after giving a survey response. Boolean provides a place for this in the response “thank you” page. You can view all user comments in the “comments” page of a project. We encourage you to regularly read this section to find out unique/rare user experiences which are otherwise missed in the response analysis. You can also get comments through API.</p>
+
+<h3 id="statistics">Statistics</h3>
+
+<p>You can find reports on surveys sent, surveys throttled, response rate and open rate in the “statistics” page of a project. You can also get statistics through API.</p>
+
+<h1 id="managing-account">Managing Account</h1>
+
+<h2 id="general-settings">General settings</h2>
+
+<p>You can change your name, company name, email address and password in the “General” section of account page.</p>
+
+<h2 id="credits">Credits</h2>
+
+<p>You need to buy credits to send surveys. One credit is worth one survey email. Once bought your credits never expire. Boolean deducts credits in small batches when sending surveys. You will not be charged for throttled surveys. You will be charged for surveys which bounced. When your credits run out surveys requests will be rejected.</p>
+
+<h3 id="buying-credits">Buying credits</h3>
+
+<p>You can easily buy credits using credit/debit card in the “accounts” section. Follow these steps:</p>
+
+<ol>
+  <li>Choose a credits pack.</li>
+  <li>Choose to enable or disable auto-renewal of credits. You if you enable Boolean will automatically re-order your chosen credit pack when you exhaust 90% of credits. You can disable auto-renew later if you change your mind.</li>
+  <li>Give your credit/debit card details. You can opt to save your card for future purchases. You can delete it later if you change your mind. It is mandatory to save card if you choose to auto-renew credits. We use Stripe to store your card details.</li>
+  <li>Complete purchase.</li>
+</ol>
+
+<p>In case your credit card is charged and transaction failed please contact us at support@booleanapp.com. We will promptly complete the order or issue you a full refund.</p>
+
+
+		</div>
+	</section>
+</div>
+
+		<footer>
+			<div class="container">
+				<p class="editor-link"><a href="cloudcannon:collections/_data/footer.yml" class="btn"><strong>&#9998;</strong> Edit footer</a></p>
+				<div class="footer-columns">
+					
+					<ul class="footer-links">
+						
+					</ul>
+					
+					<ul class="footer-links">
+						
+					</ul>
+					
+					<ul class="footer-links">
+						
+					</ul>
+					
+				</div>
+				<p class="copyright">&copy; 2017 Boolean Inc. • <a href="/terms/">Terms</a> &amp; <a href="/privacy/">Privacy</a> • Made with <a href="https://jekyllrb.com/" target="_blank">Jekyll</a> and <a href="https://pages.github.com/" target="_blank">Github Pages</a>. • Template by <a href="https://cloudcannon.com/" target="_blank">CloudCannon</a></p>
+			</div>
+		</footer>
+		<script>
+			document.getElementById("open-nav").onclick = function () {
+				document.body.classList.toggle("nav-open");
+				return false;
+			};
+		</script>
+	</body>
+</html>

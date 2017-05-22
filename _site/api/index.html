@@ -1,0 +1,260 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="/css/screen.css">
+	<link rel="icon" type="image/png" href="/favicon.png">
+	<!-- Begin Jekyll SEO tag v2.1.0 -->
+<title>API Documentation - Boolean</title>
+<meta property="og:title" content="API Documentation" />
+<link rel="canonical" href="/api/" />
+<meta property="og:url" content="/api/" />
+<meta property="og:site_name" content="Boolean" />
+<script type="application/ld+json">
+{"@context": "http://schema.org",
+"@type": "WebPage",
+"headline": "API Documentation",
+"url": "/api/"}</script>
+<!-- End Jekyll SEO tag -->
+
+	
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+</head>
+	<body>
+		<header>
+			<div class="container">
+				<div class="company-name"><a href="/"><img src="/images/logo.jpg" alt="Logo" width="100" height="23" /></a></div>
+				<nav>
+	<a class="nav-toggle" id="open-nav" href="#">&#9776;</a>
+	
+		
+		
+
+		
+		<a href="/pricing/
+" class="" >Pricing</a>
+	
+		
+		
+
+		
+		<a href="/docs/
+" class="" >Docs</a>
+	
+		
+		
+
+		
+		<a href="https://goo.gl/forms/bE1Nk8cCStqqAdHn2
+" class=" highlight" target="_blank">Request access</a>
+	
+</nav>
+
+			</div>
+		</header>
+		<div class="content">
+	<section class="page">
+		<div class="container ">
+			
+				<h2>API Documentation</h2>
+			
+			
+			<h2 id="general-requirements-for-api-requests">General requirements for API requests</h2>
+
+<ul>
+  <li>All requests should have “User-Agent” header.</li>
+  <li>All requests should be authenticated using HTTP-BASIC</li>
+  <li>All POST requests should use JSON content type for payload. A “Content-Type” header with value “application/json” is also required.</li>
+  <li>All requests are subject to rate limits.</li>
+  <li>Add parameter “pretty” to get pretty printed JSON response. E.g. <code class="highlighter-rouge">https://api.booleanapp.com/v1/stats?start_date=2016-07-16&amp;end_date=2016-07-17&amp;interval=day&amp;pretty</code></li>
+</ul>
+
+<h2 id="root-endpoint">Root endpoint</h2>
+
+<p>https://api.booleanapp.com/v1</p>
+
+<ul>
+  <li>Only HTTPS is supported. Please do not use HTTP.</li>
+</ul>
+
+<h2 id="resources">Resources</h2>
+
+<h3 id="1-unsubscribes">1. <a href="/api-unsubscribes/">Unsubscribes</a></h3>
+
+<h3 id="2-responses">2. <a href="/api-responses/">Responses</a></h3>
+
+<h3 id="3-stats">3. <a href="/api-stats/">Stats</a></h3>
+
+<h3 id="4-sendsurveys">4. <a href="/api-sendsurveys/">Sendsurveys</a></h3>
+
+<h3 id="5-score">5. <a href="/api-score/">Score</a></h3>
+
+<h2 id="error-codes">Error codes</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>HTTP code</th>
+      <th>Message</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>401</td>
+      <td>Invalid API Key</td>
+    </tr>
+    <tr>
+      <td>401</td>
+      <td>API key not provided</td>
+    </tr>
+    <tr>
+      <td>400</td>
+      <td>Badly formed JSON</td>
+    </tr>
+    <tr>
+      <td>404</td>
+      <td>Non-existent resource is requested</td>
+    </tr>
+    <tr>
+      <td>405</td>
+      <td>Method not allowed</td>
+    </tr>
+    <tr>
+      <td>422</td>
+      <td>Unprocessable request. Due to wrong data type or erroneous expression</td>
+    </tr>
+    <tr>
+      <td>429</td>
+      <td>Too many requests.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="generic-json-response-in-case-of-http-errors">Generic JSON response in case of HTTP errors</h3>
+
+<div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="err">&lt;HTTP</span><span class="w"> </span><span class="err">code&gt;</span><span class="w">
+</span><span class="p">{</span><span class="w">
+  </span><span class="nt">"request"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;request URI&gt;"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"error"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;error message&gt;"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+</div>
+
+<h4 id="example">Example</h4>
+<div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="err">HTTP</span><span class="mi">1</span><span class="err">/</span><span class="mf">1.1</span><span class="w"> </span><span class="mi">401</span><span class="w">
+</span><span class="p">{</span><span class="w">
+    </span><span class="nt">"request"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/sendsurveys/"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"error"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Invalid API Key"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"documentation"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://api.auscult.com/docs"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+</div>
+
+<h2 id="api-error-codes">API Error codes</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Code</th>
+      <th>Message</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1000</td>
+      <td>Error</td>
+      <td>Default error</td>
+    </tr>
+    <tr>
+      <td>1001</td>
+      <td>Invalid format</td>
+      <td>Invalid format of data</td>
+    </tr>
+    <tr>
+      <td>1002</td>
+      <td>Already exists</td>
+      <td>Property already exists with different data type</td>
+    </tr>
+    <tr>
+      <td>1003</td>
+      <td>Quota exceeded</td>
+      <td>Property quota exceeded. Max 50 properties per project</td>
+    </tr>
+    <tr>
+      <td>1004</td>
+      <td>Duplicate request</td>
+      <td>A survey for same transaction_id was already sent</td>
+    </tr>
+    <tr>
+      <td>1006</td>
+      <td>Required property missing</td>
+      <td>One or more required property is missing</td>
+    </tr>
+    <tr>
+      <td>1007</td>
+      <td>Email already unsubscribed</td>
+      <td>Email was unsubscribed in a previous API request.</td>
+    </tr>
+    <tr>
+      <td>1008</td>
+      <td>Error while checking email exists</td>
+      <td>Email validation failed due to internal server error.</td>
+    </tr>
+    <tr>
+      <td>1009</td>
+      <td>Invalid Value</td>
+      <td>Value is incorrect for given field.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="notes">Notes</h3>
+
+<ul>
+  <li>All requests must have the header ‘content-type: application/json’. Request will be rejected otherwise with the following error:
+    <div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"InvalidHeader"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Content type application/json expected."</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+    </div>
+  </li>
+  <li>Note that the response for Stats endpoint is incorrect(aggregated over hour for testing). Update document when we have correct data.</li>
+</ul>
+
+		</div>
+	</section>
+</div>
+
+		<footer>
+			<div class="container">
+				<p class="editor-link"><a href="cloudcannon:collections/_data/footer.yml" class="btn"><strong>&#9998;</strong> Edit footer</a></p>
+				<div class="footer-columns">
+					
+					<ul class="footer-links">
+						
+					</ul>
+					
+					<ul class="footer-links">
+						
+					</ul>
+					
+					<ul class="footer-links">
+						
+					</ul>
+					
+				</div>
+				<p class="copyright">&copy; 2017 Boolean Inc. • <a href="/terms/">Terms</a> &amp; <a href="/privacy/">Privacy</a> • Made with <a href="https://jekyllrb.com/" target="_blank">Jekyll</a> and <a href="https://pages.github.com/" target="_blank">Github Pages</a>. • Template by <a href="https://cloudcannon.com/" target="_blank">CloudCannon</a></p>
+			</div>
+		</footer>
+		<script>
+			document.getElementById("open-nav").onclick = function () {
+				document.body.classList.toggle("nav-open");
+				return false;
+			};
+		</script>
+	</body>
+</html>

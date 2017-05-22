@@ -1,229 +1,43 @@
-<!DOCTYPE>
-<html>
+---
+title: One question surveys from Boolean
+description: Send one question surveys to your users.
+---
+<section class="hero">
+	<div class="text-container">
+		<h1 class="editable"><strong>One click feedback</strong></h1>
+		<p class="subtext editable">Send one question surveys to your users</p>
+		<div class="cta button alt"><a href="https://goo.gl/forms/bE1Nk8cCStqqAdHn2" target="_blank">Request early access</a></div>
 
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="description" content="One-click surveys that don't suck!">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Single Question Surveys - Boolean</title>
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
-    <link rel="icon" href="images/favicon.ico">
-    <link rel="stylesheet" href="./styles/main.css">
-    <!-- start Mixpanel -->
-    <script type="text/javascript" src="js/mixpanel.js"></script>
-    <!-- end Mixpanel -->
-    <script>
-        var pattern = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
+	</div>
+</section>
 
-        function submit(target) {
-            if (target) {
-                var email = document.getElementById('email_id').value;
-                document.getElementById('error_msg').style.visibility = 'hidden';
-                if (email) {
-                    var validEmail = validateEmail(email);
-                    if (validEmail) {
-                        track(email, target);
-                    } else {
-                        document.getElementById('error_msg').innerHTML = 'Please provide a valid email address';
-                        document.getElementById('error_msg').style.visibility = 'visible';
-                    }
-                } else {
-                    document.getElementById('error_msg').innerHTML = 'Email address is required';
-                    document.getElementById('error_msg').style.visibility = 'visible';
-                }
-            } else {
-                var email = document.getElementById('email_id_one').value;
-                document.getElementById('error_msg_one').style.visibility = 'hidden';
-                if (email) {
-                    var validEmail = validateEmail(email);
-                    if (validEmail) {
-                        track(email, target);
-                    } else {
-                        document.getElementById('error_msg_one').innerHTML = 'Please provide a valid email address';
-                        document.getElementById('error_msg_one').style.visibility = 'visible';
-                    }
+<div class="content">
+	<section>
+		<div class="container flex">
+			<div class="text editable">
+				<h2>What is a  <strong>one question</strong> survey?</h2>
+				<p>You ask a qualitative question about your product or service. We send this question on your behalf to your users by email. We record their responses and give you realtime reports.</p>
+			</div>
+		</div>
+	</section>
 
-                } else {
-                    document.getElementById('error_msg_one').innerHTML = 'Email address is required';
-                    document.getElementById('error_msg_one').style.visibility = 'visible';
-                }
-            }
-        }
+	<section>
+		<div class="container flex">
+			<div class="text editable">
+				<h2>Why only <strong>one question</strong> ?</h2>
+				<p>Traditional surveys do not get a lot of responses because they are long and boring. Asking only one question will get you a truckload of responses.</p>
+			</div>
+		</div>
+	</section>
 
-        function validateEmail(email) {
-            return pattern.test(email);
-        }
+	<section>
+		<div class="container flex">
+			<div class="text editable">
+				<h2>How do I get <strong>deep insights</strong> from responses?</h2>
+				<p>Don't think you miss out on insights because you ask only one question! Boolean provides an extensive analytics engine to get specific insights on improving your product or service. <a href="/docs/"> Learn more</a></p>
+			</div>
+		</div>
+	</section>
 
-        function track(email, target) {
-            mixpanel.track('REQUEST_ACCESS', {
-                'email_id': email
-            });
-            if (target) {
-                document.getElementById('req_reg').style.display = 'none';
-                document.getElementById('req_success').style.display = 'block';
-            } else {
-                document.getElementById('req_reg_one').style.display = 'none';
-                document.getElementById('req_success_one').style.display = 'block';
 
-            }
-        }
-    </script>
-</head>
-
-<body>
-    <div class="main-container">
-        <div class="header">
-            <nav>
-                <div class="nav-wrapper">
-                    <div class="inner-wrap">
-                        <a href="/"><img src="images/logo.png" alt="Boolean"></a>
-                        <ul class="nav-elements">
-                            <li><a href="/features.html">Features</a></li>
-                            <li><a href="/pricing.html">Pricing</a></li>
-                            <li><a href="https://console.booleanapp.com/login" target="_blank">Login</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </nav>
-        </div>
-        <div class="title-head">
-            <span class="main-title">Surveys that don't suck!</span>
-            <div class="title-sub-head">
-                <span class="sub-title">Send single question yes/no surveys. Get loads of feedback!</span>
-            </div>
-        </div>
-        <div class="feature-image">
-            <div class="request-access">
-                <div id="req_reg">
-                    <input type="email" id="email_id" required placeholder="Your email address" class="email-input" />
-                    <input type="button" class="request-button" value="Request Early Access" onclick="submit('top')" />
-                    <div class="error-msg" id="error_msg"></div>
-                </div>
-                <div class="request-success" id="req_success">
-                    <span>Thank you! We'll be in touch.</span>
-                </div>
-            </div>
-            <div class="chat-bots">
-                <img src="images/chatbots.png" alt="Boolean" />
-            </div>
-        </div>
-        <div class="process-container">
-            <div class="how-it-works">
-                <span class="how-it-works-text">HOW IT WORKS</span>
-            </div>
-            <div class="process-content">
-                <div class="compose">
-                    <div class="image">
-                        <img src="images/compose.png" alt="Compose" />
-                    </div>
-                    <p class="title-text">
-                        Compose
-                    </p>
-                    <p class="content-text">Create a survey with one question with 2 possible answers.</p>
-                </div>
-                <div class="send">
-                    <div class="image">
-                        <img src="images/send_mail.png" alt="Send Mail">
-                    </div>
-
-                    <p class="title-text">Send</p>
-                    <p class="content-text">Boolean will email the survey. Recipients can respond by clicking on an answer.</p>
-                </div>
-                <div class="analyze">
-                    <div class="image">
-                        <img src="images/analyze.png" alt="Analyze">
-                    </div>
-                    <p class="title-text">Analyze</p>
-                    <p class="content-text">
-                        See responses in realtime dashboard.
-                    </p>
-                </div>
-            </div>
-        </div>
-        <div class="feature-container">
-            <div class="feature-title">
-                <span class="feature-title-text">
-                   FEATURES
-               </span>
-            </div>
-            <div class="feature-content">
-                <div class="customizable">
-                    <div class="image">
-                        <img src="images/customizable.png" alt="Customizable" />
-                    </div>
-                    <p class="title-text">Fully customizable</p>
-                    <p class="content-text">Customize the survey with own logo, sender name, email subject and reply-to address. </p>
-                </div>
-                <div class="scoring">
-                    <div class="image">
-                        <img src="images/score.png" alt="Scoring">
-                    </div>
-                    <p class="title-text">Real time dashbboard</p>
-                    <p class="content-text">See responses and aggregates in our real time interactive dashboard.</p>
-                </div>
-                <div class="segmentation">
-                    <div class="image">
-                        <img src="images/segmentation.png" alt="Segmentation">
-                    </div>
-                    <p class="title-text">Segmentation</p>
-                    <p class="content-text">Find probably reasons for positive or negative response by creating segments in your recipients.</p>
-                </div>
-            </div>
-            <div class="all-features">
-                <a href="/features.html">See all features</a>
-            </div>
-        </div>
-        <div class="get-start-container">
-            <div class="title-head">
-                <span class="start-head">Ready to take us for a spin?</span>
-            </div>
-            <div class="request-access">
-                <div id="req_reg_one">
-                    <input type="text" placeholder="Your email address" id="email_id_one" class="email-input" />
-                    <input type="button" class="request-button" value="Request Early Access" onclick="submit()" />
-                    <div class="error-msg-one" id="error_msg_one"></div>
-                </div>
-                <div class="request-success" id="req_success_one">
-                    <span>Thank you! We'll be in touch.</span>
-                </div>
-            </div>
-        </div>
-      <div class="footer">
-            <div class="company">
-                <div class="footer-title">Company</div>
-                <div class="content">
-                    <p>support@booleanapp.com</p>
-                    <a href="/terms.html">
-                        <p>Terms of service</p>
-                    </a>
-                    <a href="/privacy.html">
-                        <p>Privacy Policy</p>
-                    </a>
-                </div>
-            </div>
-            <div class="product">
-                <div class="footer-title">Product</div>
-                <div class="content">
-                <a href="https://www.booleanapp.com/docs/" target="_blank">
-                    <p>Docs</p>
-                <a href="https://www.booleanapp.com/docs/v1_introduction.html" target="_blank">                    
-                    <p>API</p>
-                </div>
-            </div>
-
-        </div>
-    </div>
-    <script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-  ga('create', 'UA-97482672-2', 'auto');
-  ga('send', 'pageview');
-
-</script>
-</body>
-
-</html>
+</div>

@@ -527,7 +527,6 @@ td.text-center {
 .main-content .high-pricing {
     text-align: center;
     font-size: 0.8em;
-    margin: 1% auto auto auto;
 }
 
 .main-content .faqs {
@@ -583,14 +582,6 @@ td.text-center {
 
 .footer .company .content img {
     max-width: 100%;
-}
-
-.main-content .add-content {
-    margin: 5% auto 10% auto;
-}
-
-.add-content .notify {
-    margin: auto 3%;
 }
 
 @media only screen and (max-width: 700px) {
@@ -723,8 +714,5 @@ td.text-center {
     }
     .feature-option .content .opt-more {
         text-align: center;
-    }
-    .main-content .add-content {
-        margin: 5% 5% 10% 5%;
     }
 }
