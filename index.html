@@ -55,10 +55,15 @@
             return pattern.test(email);
         }
 
-        function track(email, target) {
-            mixpanel.track('REQUEST_ACCESS', {
-                'email_id': email
-            });
+function track(email, target) {
+            try{
+                mixpanel.track('REQUEST_ACCESS', {
+                    'email_id': email
+                });    
+            } catch(err){
+                sendEmailDetails(email, target)
+            }
+            
             if (target) {
                 document.getElementById('req_reg').style.display = 'none';
                 document.getElementById('req_success').style.display = 'block';
@@ -67,7 +72,33 @@
                 document.getElementById('req_success_one').style.display = 'block';
 
             }
+        }    
+
+function sendEmailDetails(email, target){
+            var http = new XMLHttpRequest();
+            var url = "https://web.booleanapp.com/request/" + email;
+                
+            http.open("GET", url, true);
+
+            //Send the proper header information along with the request
+            http.onreadystatechange = function() {//Call a function when the state changes.
+                if(http.readyState == 4 && http.status == 200) {
+                    if (target) {
+                        document.getElementById('req_reg').style.display = 'none';
+                        document.getElementById('req_success').style.display = 'block';
+                    } else {
+                        document.getElementById('req_reg_one').style.display = 'none';
+                        document.getElementById('req_success_one').style.display = 'block';
+
+                    }
+                }
+            }
+            http.send();
         }
+
+
+
+
     </script>
 </head>
 
