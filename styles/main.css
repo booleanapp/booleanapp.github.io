@@ -47,6 +47,14 @@ nav ul li {
     font-weight: bold;
 }
 
+.sign-up-btn {
+    border-radius: 4px;
+    border: solid 2px #e75e00;
+    padding: .5em 1em;
+    color: #e75e00 !important;
+    font-weight: bold;
+}
+
 .main-container .title-head {
     clear: both;
     text-align: center;
@@ -70,6 +78,10 @@ nav ul li {
     line-height: 1.33;
 }
 
+.main-content .add-content {
+    margin: 2% 5%;
+}
+
 .main-container .feature-image {
     text-align: center;
     background-image: url(../images/bg.png);
@@ -78,94 +90,34 @@ nav ul li {
     margin: 3% auto auto auto;
 }
 
-.feature-image .request-access {
-    margin: auto auto 3% auto;
+.feature-image .try-free-btn {
+    width: 19.5%;
+    min-width: 150px;
+    padding: 1.5% .5%;
 }
 
-.feature-image .request-access .request-success {
-    margin: auto auto 3% auto;
-}
-
-.feature-image .request-access .request-success,
-.get-start-container .request-access .request-success {
-    display: none;
-    color: #1fb619;
-    font-size: 1em;
-    font-weight: bold;
-}
-
-.get-start-container .request-access .email-input {
-    width: 25%;
-}
-
-.get-start-container .request-access .email-input {
-    padding: 1.3% 1%;
-}
-
-.get-start-container .request-access .request-button {
-    padding: 1.3% 1%;
-}
-
-.request-access .email-input {
-    box-sizing: border-box;
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    border: 1px solid #C2C2C2;
-    box-shadow: 1px 1px 4px #EBEBEB;
-    -moz-box-shadow: 1px 1px 4px #EBEBEB;
-    -webkit-box-shadow: 1px 1px 4px #EBEBEB;
-    border-radius: 3px;
-    -webkit-border-radius: 3px;
-    -moz-border-radius: 3px;
-    padding: 1.7% 1.25%;
-    outline: none;
-    width: 30%;
-    font-family: 'Open Sans', sans-serif;
-    font-size: 1.05em;
-}
-
-.request-access .email-input:focus {
-    border: solid 1px #f18101;
-}
-
-.request-access .request-button {
-    border: none;
-    font-size: 1.05em;
-    padding: 1.75% 1.25%;
-    background: #e75e00;
-    color: #fff;
-    font-weight: bold;
-    box-shadow: 1px 1px 4px #DADADA;
-    -moz-box-shadow: 1px 1px 4px #DADADA;
-    -webkit-box-shadow: 1px 1px 4px #DADADA;
-    border-radius: 3px;
-    -webkit-border-radius: 3px;
-    -moz-border-radius: 3px;
-    cursor: pointer;
-}
-
-.request-access .error-msg {
-    width: 50%;
-}
-
-.request-access .error-msg-one {
-    width: 41%;
-}
-
-.request-access .error-msg,
-.request-access .error-msg-one {
-    color: #d85c6b;
+.feature-image .try-free-btn,
+.get-start-container .try-free-btn {
+    border-radius: 0.2em;
+    background-color: #e75e00;
     margin: 0 auto;
-    text-align: left;
-    visibility: hidden;
 }
 
-.get-start-container .request-access {
-    margin: 4% auto;
+.get-start-container .try-free-btn {
+    width: 15.5%;
+    min-width: 150px;
+    padding: 1.0% .25%;
 }
 
-.get-start-container .request-access .request-success {
-    margin: 4% auto;
+.feature-image .try-free-btn .try-free-text,
+.get-start-container .try-free-btn .try-free-text {
+    font-weight: 600;
+    font-size: 1.05em;
+    color: #FFFFFF;
+}
+
+.feature-image .no-card {
+    margin: 0.5% auto;
 }
 
 .feature-image .chat-bots {
@@ -353,6 +305,10 @@ nav ul li {
     color: #363c44;
 }
 
+.footer .company .content img {
+    max-width: 100%;
+}
+
 .main-container .main-content {
     margin: 0 auto;
     clear: both;
@@ -527,7 +483,6 @@ td.text-center {
 .main-content .high-pricing {
     text-align: center;
     font-size: 0.8em;
-    margin: 1% auto auto auto;
 }
 
 .main-content .faqs {
@@ -581,10 +536,6 @@ td.text-center {
     vertical-align: text-bottom;
 }
 
-.footer .company .content img {
-    max-width: 100%;
-}
-
 .main-content .add-content {
     margin: 5% auto 10% auto;
 }
@@ -593,7 +544,15 @@ td.text-center {
     margin: auto 3%;
 }
 
-@media only screen and (max-width: 700px) {
+.free-trial-link {
+    text-decoration: none;
+}
+
+a:visited {
+    text-decoration: none;
+}
+
+@media only screen and (max-width: 768px) {
     body,
     .main-container {
         font-size: 0.875em;
@@ -610,7 +569,7 @@ td.text-center {
         margin: 1% auto;
     }
     .header .nav-wrapper .nav-elements {
-        width: 225px;
+        width: 300px;
         margin: auto auto 19% auto;
         float: none !important;
         text-align: center;
@@ -619,36 +578,18 @@ td.text-center {
         font-size: 2.0em;
         letter-spacing: 0;
     }
+    .feature-image .try-free-btn,
+    .get-start-container .try-free-btn {
+        border-radius: 0.2em;
+        background-color: #e75e00;
+        margin: 0 auto;
+        padding: 2.5% 1.5%;
+    }
     .main-container .feature-image {
         margin: 10% auto auto auto;
         width: 90%;
     }
-    .feature-image .request-access {
-        margin: auto auto 5% auto;
-    }
-    .get-start-container .request-access .email-input {
-        width: 70%;
-        padding: 2% 1%;
-        margin: 2% auto auto auto;
-    }
-    .request-access .email-input {
-        width: 70%;
-        padding: 2% 1%;
-        margin: 2% auto auto auto;
-    }
-    .get-start-container .request-access .request-button {
-        margin: 2% auto;
-        padding: 2.5% 2.5%;
-    }
-    .request-access .request-button {
-        margin: 2% auto;
-        padding: 3% 3%;
-    }
-    .request-access .error-msg,
-    .request-access .error-msg-one {
-        text-align: center;
-    }
-    .feature .feature-image .chat-bots {
+    .feature-image .chat-bots {
         margin: 20% auto auto auto;
     }
     .process-container .process-content .compose,
@@ -669,6 +610,15 @@ td.text-center {
     .get-start-container .title-head {
         margin: 10% auto auto auto;
     }
+    .get-start-container .try-free-btn {
+        margin: 5% auto auto auto;
+    }
+    .get-start-container .no-card {
+        margin: auto auto 10% auto;
+    }
+    .main-container .feature-image {
+        margin: 6% auto auto auto;
+    }
     .how-it-works .how-it-works-text {
         font-size: 1.75em;
     }
@@ -682,6 +632,9 @@ td.text-center {
         margin: 0 auto;
         width: 50%;
         float: none !important;
+    }
+    .footer .company .content img {
+        max-width: 100%;
     }
     /* Pricing Page  */
     .main-content .pricing-head .title-text {
