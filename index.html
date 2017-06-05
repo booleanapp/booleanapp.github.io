@@ -88,26 +88,46 @@
                </span>
             </div>
             <div class="feature-content">
-                <div class="customizable">
+                <div class="customizable feature-links" onmouseover="displayImage(event, 'customizable')">
                     <div class="image">
                         <img src="images/customizable.png" alt="Customizable" />
                     </div>
                     <p class="title-text">Fully customizable</p>
                     <p class="content-text">Customize the survey email with your own logo, brand name and subject.</p>
+                    <div class="mob-feat-img">
+                        <img src="images/feat_email.jpg" alt="Customizable">
+                    </div>
                 </div>
-                <div class="scoring">
+                <div class="scoring feature-links" onmouseover="displayImage(event, 'scoring')">
                     <div class="image">
                         <img src="images/score.png" alt="Scoring">
                     </div>
                     <p class="title-text">Real time dashboard</p>
                     <p class="content-text">See individual and aggregate responses in our real time dashboard.</p>
+                    <div class="mob-feat-img">
+                        <img src="images/feat_scoring.jpg" alt="Scoring">
+                    </div>
                 </div>
-                <div class="segmentation">
+                <div class="segmentation feature-links" onmouseover="displayImage(event, 'segmentation')">
                     <div class="image">
                         <img src="images/segmentation.png" alt="Segmentation">
                     </div>
                     <p class="title-text">Segmentation</p>
                     <p class="content-text">Find reasons for positive or negative feedback by segmenting responses.</p>
+                    <div class="mob-feat-img">
+                        <img src="images/feat_segment.jpg" alt="Segmentation">
+                    </div>
+                </div>
+                <div class="featureimg-wrapper">
+                    <div class="feat-img" id="customizable" style="display:block;">
+                        <img src="images/feat_email.jpg" alt="Customizable">
+                    </div>
+                    <div class="feat-img" id="scoring" style="display:none;">
+                        <img src="images/feat_scoring.jpg" alt="Scoring">
+                    </div>
+                    <div class="feat-img" id="segmentation" style="display:none;">
+                        <img src="images/feat_segment.jpg" alt="Segmentation">
+                    </div>
                 </div>
             </div>
             <div class="all-features">
@@ -130,7 +150,7 @@
                 <span>No sign up required</span>
             </div>
         </div>
-             <div class="footer">
+        <div class="footer">
             <div class="company">
                 <div class="footer-title">Company</div>
                 <div class="content">
@@ -146,27 +166,48 @@
             <div class="product">
                 <div class="footer-title">Product</div>
                 <div class="content">
-                <a href="https://www.booleanapp.com/docs/" target="_blank">
-                    <p>Docs</p></a>
-                <a href="https://www.booleanapp.com/docs/v1_introduction.html" target="_blank">                    
-                    <p>API</p></a>
+                    <a href="https://www.booleanapp.com/docs/" target="_blank">
+                        <p>Docs</p>
+                    </a>
+                    <a href="https://www.booleanapp.com/docs/v1_introduction.html" target="_blank">
+                        <p>API</p>
+                    </a>
                 </div>
             </div>
 
         </div>
     </div>
-
     <script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+        function displayImage(evt, featureName) {
+            var idx, imageContent, featureLinks;
+            imageContent = document.getElementsByClassName("feat-img");
+            for (idx = 0; idx < imageContent.length; idx++) {
+                imageContent[idx].style.display = "none";
+            }
+            featureLinks = document.getElementsByClassName("feature-links");
+            for (idx = 0; idx < featureLinks.length; idx++) {
+                featureLinks[idx].className = featureLinks[idx].className.replace("feature-hover", "");
+            }
+            document.getElementById(featureName).style.display = "block";
+            evt.currentTarget.className += " feature-hover";
+        }
+    </script>
+    <script>
+        (function (i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r;
+            i[r] = i[r] || function () {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date();
+            a = s.createElement(o),
+                m = s.getElementsByTagName(o)[0];
+            a.async = 1;
+            a.src = g;
+            m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
 
-  ga('create', 'UA-97482672-2', 'auto');
-  ga('send', 'pageview');
-
-</script>
-
+        ga('create', 'UA-97482672-2', 'auto');
+        ga('send', 'pageview');
+    </script>
 </body>
 <p align="center">©2017 Boolean Inc. All rights reserved.</p>
 
