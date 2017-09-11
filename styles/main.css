@@ -68,12 +68,14 @@ nav ul li {
     font-weight: bold;
     letter-spacing: -1.9px;
 }
-.title-head .static-pages-title{
+
+.title-head .static-pages-title {
     font-family: Helvetica;
     font-size: 2.125em;
     font-weight: bold;
     letter-spacing: -1.9px;
 }
+
 .title-head .title-sub-head {
     margin-top: 1%;
 }
@@ -390,9 +392,9 @@ nav ul li {
 
 .pricing-head .title-text {
     font-family: Helvetica;
-    font-size: 3em;
+    font-size: 2em;
     font-weight: bold;
-    letter-spacing: -1.9px;
+    letter-spacing: -1.0px;
 }
 
 .main-content .pricing-subhead {
@@ -422,11 +424,11 @@ nav ul li {
 
 .main-content .credits-table {
     text-align: center;
-    width: 18.8%;
+    width: 50.8%;
     margin: 0 auto;
-    border-style: solid;
-    border-width: 1px;
-    border-image-source: linear-gradient(to bottom, #eaeaea, #d1d1d1);
+    /* border-style: solid; */
+    /* border-width: 1px; */
+    /* border-image-source: linear-gradient(to bottom, #eaeaea, #d1d1d1); */
     background-color: #f3f7fb;
     border-image-slice: 1;
 }
@@ -435,7 +437,7 @@ nav ul li {
     background-color: #f3f7fb;
     border-collapse: collapse;
     margin: auto;
-    max-width: 250px;
+    max-width: 700px;
     padding: 0.1em;
     width: 100%;
 }
@@ -444,8 +446,8 @@ nav ul li {
     padding: .5em;
     text-align: center;
     vertical-align: middle;
-    background-color: #48545f;
-    color: #ffffff;
+    background-color: #fff;
+    color: #212121;
     font-size: 1.1em;
     line-height: 2;
 }
@@ -469,15 +471,24 @@ tr:last-child {
 
 td {
     vertical-align: middle;
-    border-right: 1px solid #C1C3D1;
+    border: 1px solid #C1C3D1;
     opacity: 0.9;
     font-size: 1.0em;
     line-height: 3;
     color: #212121;
 }
 
+th {
+    border-right: solid 1px #c0d1e1;
+}
+th:nth-child(2),
+th:nth-child(3) {
+    border-top: solid 1px #c0d1e1;
+}
 th:first-child {
-    border-right: solid 1px #35404b;
+    border-top: none;
+    border-left: none;
+    border-bottom: solid 1px #c0d1e1;
 }
 
 th.text-center,
@@ -504,7 +515,7 @@ td.text-center {
 
 .faqs-title .title-text {
     font-family: Helvetica;
-    font-size: 2.0em;
+    font-size: 1.8em;
     font-weight: bold;
 }
 
