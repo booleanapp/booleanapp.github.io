@@ -288,7 +288,7 @@ nav ul li {
     float: left;
 }
 
-.footer .social {
+.footer .apps {
     float: left;
     width: 8.6%;
     margin-left: 6.1%;
@@ -664,14 +664,14 @@ a:visited {
     }
     .footer .company,
     .footer .product,
-    .footer .social,
+    .footer .apps,
     .footer .latest-post {
         margin: 0 auto;
         width: 50%;
         float: none !important;
     }
-    .footer .company .content img {
-        max-width: 100%;
+    .footer .apps .content img {
+        max-width: 90%;
     }
     /* Pricing Page  */
     .main-content .pricing-head .title-text {
