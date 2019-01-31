@@ -10,6 +10,98 @@
     <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
     <link rel="icon" href="images/favicon.ico">
     <link rel="stylesheet" href="./styles/main.css">
+   <!-- start Mixpanel -->
+    <script type="text/javascript" src="js/mixpanel.js"></script>
+    <!-- end Mixpanel -->
+    <script>
+        var pattern = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
+
+        function submit(target) {
+            if (target) {
+                var email = document.getElementById('email_id').value;
+                document.getElementById('error_msg').style.visibility = 'hidden';
+                if (email) {
+                    var validEmail = validateEmail(email);
+                    if (validEmail) {
+                        track(email, target);
+                        sendEmailDetails(email, target)
+                    } else {
+                        document.getElementById('error_msg').innerHTML = 'Please provide a valid email address';
+                        document.getElementById('error_msg').style.visibility = 'visible';
+                    }
+                } else {
+                    document.getElementById('error_msg').innerHTML = 'Email address is required';
+                    document.getElementById('error_msg').style.visibility = 'visible';
+                }
+            } else {
+                var email = document.getElementById('email_id_one').value;
+                document.getElementById('error_msg_one').style.visibility = 'hidden';
+                if (email) {
+                    var validEmail = validateEmail(email);
+                    if (validEmail) {
+                        track(email, target);
+                        sendEmailDetails(email, target)
+                    } else {
+                        document.getElementById('error_msg_one').innerHTML = 'Please provide a valid email address';
+                        document.getElementById('error_msg_one').style.visibility = 'visible';
+                    }
+
+                } else {
+                    document.getElementById('error_msg_one').innerHTML = 'Email address is required';
+                    document.getElementById('error_msg_one').style.visibility = 'visible';
+                }
+            }
+        }
+
+        function validateEmail(email) {
+            return pattern.test(email);
+        }
+
+function track(email, target) {
+            try{
+                mixpanel.track('REQUEST_ACCESS', {
+                    'email_id': email
+                });    
+            } catch(err){
+                sendEmailDetails(email, target)
+            }
+            
+            if (target) {
+                document.getElementById('req_reg').style.display = 'none';
+                document.getElementById('req_success').style.display = 'block';
+            } else {
+                document.getElementById('req_reg_one').style.display = 'none';
+                document.getElementById('req_success_one').style.display = 'block';
+
+            }
+        }    
+
+function sendEmailDetails(email, target){
+            var http = new XMLHttpRequest();
+            var url = "https://leads.booleanapp.com/lead/details?email=" + email;
+                
+            http.open("GET", url, true);
+
+            //Send the proper header information along with the request
+            http.onreadystatechange = function() {//Call a function when the state changes.
+                if(http.readyState == 4 && http.status == 200) {
+                    if (target) {
+                        document.getElementById('req_reg').style.display = 'none';
+                        document.getElementById('req_success').style.display = 'block';
+                    } else {
+                        document.getElementById('req_reg_one').style.display = 'none';
+                        document.getElementById('req_success_one').style.display = 'block';
+
+                    }
+                }
+            }
+            http.send();
+        }
+
+
+
+
+    </script>
 </head>
 
 <body>
@@ -34,13 +126,21 @@
             </div>
         </div>
         <div class="feature-image">
-            <a href="https://console.booleanapp.com/register" class="free-trial-link" target="_blank">
-                <div class="try-free-btn">
-                    <span class="try-free-text">SIGN UP FOR FREE</span>
+
+            <div class="request-access">
+                <div id="req_reg">
+                    <input type="email" id="email_id" required placeholder="Your email address" class="email-input" />
+                    <input type="button" class="request-button" value="Request Access" onclick="submit('top')" />
+                    <div class="error-msg" id="error_msg"></div>
                 </div>
-            </a>
+                <div class="request-success" id="req_success">
+                    <span>Thank you! We'll be in touch.</span>
+                </div>
+            </div>
+
+
             <div class="no-card">
-                <span>No credit card required.</span>
+
             </div>
             <div class="chat-bots">
                 <img src="images/chatbots.png" alt="Boolean" />
