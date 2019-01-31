@@ -10,12 +10,11 @@
     <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
     <link rel="icon" href="images/favicon.ico">
     <link rel="stylesheet" href="./styles/main.css">
-   <!-- start Mixpanel -->
+    <!-- start Mixpanel -->
     <script type="text/javascript" src="js/mixpanel.js"></script>
     <!-- end Mixpanel -->
     <script>
         var pattern = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
-
         function submit(target) {
             if (target) {
                 var email = document.getElementById('email_id').value;
@@ -24,7 +23,6 @@
                     var validEmail = validateEmail(email);
                     if (validEmail) {
                         track(email, target);
-                        sendEmailDetails(email, target)
                     } else {
                         document.getElementById('error_msg').innerHTML = 'Please provide a valid email address';
                         document.getElementById('error_msg').style.visibility = 'visible';
@@ -40,30 +38,27 @@
                     var validEmail = validateEmail(email);
                     if (validEmail) {
                         track(email, target);
-                        sendEmailDetails(email, target)
                     } else {
                         document.getElementById('error_msg_one').innerHTML = 'Please provide a valid email address';
                         document.getElementById('error_msg_one').style.visibility = 'visible';
                     }
-
                 } else {
                     document.getElementById('error_msg_one').innerHTML = 'Email address is required';
                     document.getElementById('error_msg_one').style.visibility = 'visible';
                 }
             }
         }
-
         function validateEmail(email) {
             return pattern.test(email);
         }
-
 function track(email, target) {
             try{
                 mixpanel.track('REQUEST_ACCESS', {
                     'email_id': email
                 });    
+                sendEmailDetails(email, target);
             } catch(err){
-                sendEmailDetails(email, target)
+                sendEmailDetails(email, target);
             }
             
             if (target) {
@@ -72,16 +67,13 @@ function track(email, target) {
             } else {
                 document.getElementById('req_reg_one').style.display = 'none';
                 document.getElementById('req_success_one').style.display = 'block';
-
             }
         }    
-
 function sendEmailDetails(email, target){
             var http = new XMLHttpRequest();
             var url = "https://leads.booleanapp.com/lead/details?email=" + email;
                 
             http.open("GET", url, true);
-
             //Send the proper header information along with the request
             http.onreadystatechange = function() {//Call a function when the state changes.
                 if(http.readyState == 4 && http.status == 200) {
@@ -91,16 +83,11 @@ function sendEmailDetails(email, target){
                     } else {
                         document.getElementById('req_reg_one').style.display = 'none';
                         document.getElementById('req_success_one').style.display = 'block';
-
                     }
                 }
             }
             http.send();
         }
-
-
-
-
     </script>
 </head>
 
