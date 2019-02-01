@@ -66,7 +66,6 @@ function track(email, target) {
                     'email_id': email
                 });    
                 sendEmailDetails(email, target);
-                ga('send', 'event', 'Button', 'Submit', 'Request_access');
             } catch(err){
                 sendEmailDetails(email, target);
             }
