@@ -65,12 +65,18 @@ function track(email, target) {
             try{
                 mixpanel.track('REQUEST_ACCESS', {
                     'email_id': email
-                });    
+                });
+                gtag('event', 'conversion', { 'send_to': 'AW-1058603204/wCXZCJP-r5QBEMSB5PgD' });
+                gtag('event', 'click', {
+                    event_category: 'outbound',
+                    event_label: 'Request Access',
+                    transport_type: 'beacon'
+                })
                 sendEmailDetails(email, target);
             } catch(err){
                 sendEmailDetails(email, target);
             }
-            
+
             if (target) {
                 document.getElementById('req_reg').style.display = 'none';
                 document.getElementById('req_success').style.display = 'block';
@@ -78,11 +84,11 @@ function track(email, target) {
                 document.getElementById('req_reg_one').style.display = 'none';
                 document.getElementById('req_success_one').style.display = 'block';
             }
-        }    
+        }
 function sendEmailDetails(email, target){
             var http = new XMLHttpRequest();
             var url = "https://leads.booleanapp.com/lead/details?email=" + email;
-                
+
             http.open("GET", url, true);
             //Send the proper header information along with the request
             http.onreadystatechange = function() {//Call a function when the state changes.
