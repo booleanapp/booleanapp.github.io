@@ -27,8 +27,105 @@
     
 
     <link rel="icon" href="/blog/assets/img/favicon.png">
-    <link rel="stylesheet" type="text/css" href="/blog/assets/css/main.css">
+    <link rel="stylesheet" type="text/css" href="main.css">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-97482672-4"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
 
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-97482672-4');
+        gtag('config', 'AW-1058603204');
+    </script>
+    <!-- start Mixpanel -->
+    <script type="text/javascript" src="/x/mixpanel.js"></script>
+    <!-- end Mixpanel -->
+    <script>
+        var pattern = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
+        function submit(target) {
+            if (target) {
+                var email = document.getElementById('email_id').value;
+                document.getElementById('error_msg').style.visibility = 'hidden';
+                if (email) {
+                    var validEmail = validateEmail(email);
+                    if (validEmail) {
+                        track(email, target);
+                    } else {
+                        document.getElementById('error_msg').innerHTML = 'Please provide a valid email address';
+                        document.getElementById('error_msg').style.visibility = 'visible';
+                    }
+                } else {
+                    document.getElementById('error_msg').innerHTML = 'Email address is required';
+                    document.getElementById('error_msg').style.visibility = 'visible';
+                }
+            } else {
+                var email = document.getElementById('email_id_one').value;
+                document.getElementById('error_msg_one').style.visibility = 'hidden';
+                if (email) {
+                    var validEmail = validateEmail(email);
+                    if (validEmail) {
+                        track(email, target);
+                    } else {
+                        document.getElementById('error_msg_one').innerHTML = 'Please provide a valid email address';
+                        document.getElementById('error_msg_one').style.visibility = 'visible';
+                    }
+                } else {
+                    document.getElementById('error_msg_one').innerHTML = 'Email address is required';
+                    document.getElementById('error_msg_one').style.visibility = 'visible';
+                }
+            }
+        }
+        function validateEmail(email) {
+            return pattern.test(email);
+        }
+        function track(email, target) {
+            try{
+                mixpanel.track('REQUEST_ACCESS', {
+                    'email_id': email
+                });
+                gtag('event', 'conversion', { 'send_to': 'AW-1058603204/wCXZCJP-r5QBEMSB5PgD' });
+                gtag('event', 'click', {
+                    event_category: 'outbound',
+                    event_label: 'Request Access',
+                    transport_type: 'beacon'
+                })
+                sendEmailDetails(email, target);
+            } catch(err) {
+                sendEmailDetails(email, target);
+            }
+
+            if (target) {
+                document.getElementById('req_reg').style.display = 'none';
+                document.getElementById('req_success').style.display = 'block';
+            } else {
+                document.getElementById('req_reg_one').style.display = 'none';
+                document.getElementById('req_success_one').style.display = 'block';
+            }
+        }
+        function sendEmailDetails(email, target){
+            var http = new XMLHttpRequest();
+            var url = "https://leads.booleanapp.com/lead/details?email=" + email;
+
+            http.open("GET", url, true);
+            // Send the proper header information along with the request
+            http.onreadystatechange = function() { // Call a function when the state changes.
+                if(http.readyState == 4 && http.status == 200) {
+                    if (target) {
+                        document.getElementById('req_reg').style.display = 'none';
+                        document.getElementById('req_success').style.display = 'block';
+                    } else {
+                        document.getElementById('req_reg_one').style.display = 'none';
+                        document.getElementById('req_success_one').style.display = 'block';
+                    }
+                }
+            }
+            http.send();
+        }
+    </script>
 
 </head>
 
@@ -161,8 +258,24 @@ With advances in AI and machine learning, CRM can help your sales team communica
 <p>Salesforce has a product called “Sales Cloud” which is a CRM for sales. This product has features useful for large companies like opportunity/account management, workflow management and files sync.</p>
 
 <h2 id="microsoft"><a href="https://dynamics.microsoft.com/en-us/sales/overview/">Microsoft</a></h2>
-<p>Sales Force Automation is one of the products in Microsoft’s “Dynamics 365” enterprise software suite. This CRM product has features useful for large companies like Linkedin integration, AI-driven sales insights and lead engagement.</p>
+<p>Sales Force Automation is one of the products in Microsoft’s “Dynamics 365” enterprise software suite. This CRM product has features useful for large companies like Linkedin integration, AI-driven sales insights and lead engagement.</p><br><br>
 
+        <div class="feature-image">
+            <div class="request-access">
+         Need help in implementing CRM in your organization? Get a FREE 30 min consultation!<br>
+                <div id="req_reg">
+                    <input type="email" id="email_id" required placeholder="Your work email" class="email-input" />
+                    <input type="button" class="request-button" value="Submit" onclick="submit('top')" />
+                    <div class="error-msg" id="error_msg"></div>
+                </div>
+                <div class="request-success" id="req_success">
+                    <span>Thank you! We'll be in touch.</span>
+                </div>
+            </div>
+            <div class="no-card">
+
+            </div>
+<br><br>
 <h2 id="startups-and-smbs">Startups and SMBs</h2>
 <p>If you are a start-up or a small/medium sized business then you won’t require too much customisation in CRM software. You can use a product off the shelf. Some of the popular products are given below. Some of these products are provided as a service. Such products do not require any installation on your company’s premises. They are delivered and used over the internet using a browser.</p>
 
