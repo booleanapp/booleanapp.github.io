@@ -148,7 +148,8 @@ nav ul li {
     background-color: #f7f7f7;
 }
 
-.feature-container .all-features {
+.feature-container .all-features,
+.feature-sub-container .all-features {
     text-align: center;
     margin: auto auto 5% auto;
     clear: both;
@@ -172,12 +173,14 @@ nav ul li {
 }
 
 .process-container .process-content,
-.feature-container .feature-content {
+.feature-container .feature-content,
+.feature-sub-container .feature-content {
     overflow: hidden;
     clear: both;
 }
 
-.feature-container .feature-content {
+.feature-container .feature-content,
+.feature-sub-container .feature-content {
     margin: 5% auto 1% auto;
 }
 
@@ -233,11 +236,24 @@ nav ul li {
     float: left;
 }
 
+.feature-sub-container .feature-content .first-col {
+    margin-left: 15.56%;
+    float: left;
+    width: 28.125%;
+}
+
+.feature-sub-container .feature-content .second-col {
+    margin-left: 12.48%;
+    width: 28.125%;
+    float: left;
+}
+
 .main-container .feature-container {
     margin: 0 auto;
 }
 
-.feature-container .feature-title {
+.feature-container .feature-title,
+.feature-sub-container .feature-title {
     width: 184px;
     margin: 5% auto;
     text-align: center;
@@ -607,9 +623,6 @@ a:visited {
 
 .get-start-container .request-access .email-input {
     width: 25%;
-}
-
-.get-start-container .request-access .email-input {
     padding: 1.3% 1%;
 }
 
@@ -751,6 +764,14 @@ a:visited {
     }
     .get-start-container .no-card {
         margin: auto auto 10% auto;
+    }
+    .request-access .email-input {
+        width: 80%;
+        padding: 15px;
+    }
+    .request-access .request-button {
+        padding: 15px 30px;
+        margin: 10px auto;
     }
     .main-container .feature-image {
         margin: 6% auto auto auto;
