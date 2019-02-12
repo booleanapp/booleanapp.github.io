@@ -127,6 +127,63 @@
         }
     </script>
 
+
+<script>
+document.addEventListener('scroll', function(){
+ 
+    var h =  document.documentElement,
+        b =  document.body,
+        st =  'scrollTop',
+        sh =  'scrollHeight';
+ 
+    var percent = parseInt ( (h[st]||b[st]) / ((h[sh]||b[sh]) - h.clientHeight) * 100);
+ 
+  console.log(percent + "%");
+if (percent == 25)
+{
+     gtag('event', 'scrolling', {
+                    event_category: 'morethan25',
+                    event_label: 'crm',
+                    transport_type: 'beacon',
+                    'non_interaction': true
+                });
+
+}
+else if (percent == 50)
+{
+     gtag('event', 'scrolling', {
+                    event_category: 'morethan50',
+                    event_label: 'crm', 
+                    transport_type: 'beacon',                 
+                    'non_interaction': true
+                });
+
+}
+else if (percent == 75)
+{
+     gtag('event', 'scrolling', {
+                    event_category: 'morethan75',
+                    event_label: 'crm',                  
+                    transport_type: 'beacon',
+                    'non_interaction': true
+                });
+
+}
+else if (percent == 90)
+{
+     gtag('event', 'scrolling', {
+                    event_category: 'morethan90',
+                    event_label: 'crm',                   
+                    transport_type: 'beacon',
+                    'non_interaction': true
+                });
+
+}
+   
+});
+ 
+  </script>
+
 </head>
 
 <body>
