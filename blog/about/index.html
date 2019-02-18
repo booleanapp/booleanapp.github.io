@@ -9,7 +9,7 @@
     
         <title>Boolean blog</title>
     
-    <meta property="og:url"           content="https://www.bookofmeta.com/blog/about/" />
+    <meta property="og:url"           content="https://www.booleanapp.com/blog/about/" />
     <meta property="og:type"          content="article" />
     <meta property="og:title"         content="" />
     <meta property="og:image"         content="https://www.booleanapp.com/blog/assets/img/" />
@@ -25,8 +25,166 @@
 
     
 
-    <link rel="icon" href="/assets/img/favicon.png">
-    <link rel="stylesheet" type="text/css" href="/assets/css/main.css">
+    <link rel="icon" href="/blog/assets/img/favicon.png">
+    <link rel="stylesheet" type="text/css" href="/blog/assets/css/main.css">
+
+
+     <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-97482672-4"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-97482672-4');
+        gtag('config', 'AW-1058603204');
+    </script>
+    <!-- start Mixpanel -->
+    <script type="text/javascript" src="/blog/assets/js/mixpanel.js"></script>
+    <!-- end Mixpanel -->
+    <script>
+        var pattern = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
+        function submit(target) {
+            if (target) {
+                var email = document.getElementById('email_id').value;
+                document.getElementById('error_msg').style.visibility = 'hidden';
+                if (email) {
+                    var validEmail = validateEmail(email);
+                    if (validEmail) {
+                        track(email, target);
+                    } else {
+                        document.getElementById('error_msg').innerHTML = 'Please provide a valid email address';
+                        document.getElementById('error_msg').style.visibility = 'visible';
+                    }
+                } else {
+                    document.getElementById('error_msg').innerHTML = 'Email address is required';
+                    document.getElementById('error_msg').style.visibility = 'visible';
+                }
+            } else {
+                var email = document.getElementById('email_id_one').value;
+                document.getElementById('error_msg_one').style.visibility = 'hidden';
+                if (email) {
+                    var validEmail = validateEmail(email);
+                    if (validEmail) {
+                        track(email, target);
+                    } else {
+                        document.getElementById('error_msg_one').innerHTML = 'Please provide a valid email address';
+                        document.getElementById('error_msg_one').style.visibility = 'visible';
+                    }
+                } else {
+                    document.getElementById('error_msg_one').innerHTML = 'Email address is required';
+                    document.getElementById('error_msg_one').style.visibility = 'visible';
+                }
+            }
+        }
+        function validateEmail(email) {
+            return pattern.test(email);
+        }
+        function track(email, target) {
+            try{
+                mixpanel.track('REQUEST_ACCESS', {
+                    'email_id': email
+                });
+                gtag('event', 'conversion', { 'send_to': 'AW-1058603204/wCXZCJP-r5QBEMSB5PgD' });
+                gtag('event', 'click', {
+                    event_category: 'outbound',
+                    event_label: 'Request Access',
+                    transport_type: 'beacon'
+                })
+                sendEmailDetails(email, target);
+            } catch(err) {
+                sendEmailDetails(email, target);
+            }
+
+            if (target) {
+                document.getElementById('req_reg').style.display = 'none';
+                document.getElementById('req_success').style.display = 'block';
+            } else {
+                document.getElementById('req_reg_one').style.display = 'none';
+                document.getElementById('req_success_one').style.display = 'block';
+            }
+        }
+        function sendEmailDetails(email, target){
+            var http = new XMLHttpRequest();
+            var url = "https://leads.booleanapp.com/lead/details?email=/about/" + email;
+
+            http.open("GET", url, true);
+            // Send the proper header information along with the request
+            http.onreadystatechange = function() { // Call a function when the state changes.
+                if(http.readyState == 4 && http.status == 200) {
+                    if (target) {
+                        document.getElementById('req_reg').style.display = 'none';
+                        document.getElementById('req_success').style.display = 'block';
+                    } else {
+                        document.getElementById('req_reg_one').style.display = 'none';
+                        document.getElementById('req_success_one').style.display = 'block';
+                    }
+                }
+            }
+            http.send();
+        }
+    </script>
+
+
+<script>
+document.addEventListener('scroll', function(){
+ 
+    var h =  document.documentElement,
+        b =  document.body,
+        st =  'scrollTop',
+        sh =  'scrollHeight';
+ 
+    var percent = parseInt ( (h[st]||b[st]) / ((h[sh]||b[sh]) - h.clientHeight) * 100);
+ 
+  console.log(percent + "%");
+if (percent == 25)
+{
+     gtag('event', 'scrolling', {
+                    event_category: 'morethan25',
+                    event_label: '/about/',
+                    transport_type: 'beacon',
+                    'non_interaction': true
+                });
+
+}
+else if (percent == 50)
+{
+     gtag('event', 'scrolling', {
+                    event_category: 'morethan50',
+                    event_label: '/about/', 
+                    transport_type: 'beacon',                 
+                    'non_interaction': true
+                });
+
+}
+else if (percent == 75)
+{
+     gtag('event', 'scrolling', {
+                    event_category: 'morethan75',
+                    event_label: '/about/',                  
+                    transport_type: 'beacon',
+                    'non_interaction': true
+                });
+
+}
+else if (percent == 90)
+{
+     gtag('event', 'scrolling', {
+                    event_category: 'morethan90',
+                    event_label: '/about/',                   
+                    transport_type: 'beacon',
+                    'non_interaction': true
+                });
+
+}
+   
+});
+ 
+  </script>
+
 
 
 </head>
